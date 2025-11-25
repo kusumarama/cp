@@ -2,6 +2,17 @@
 @extends('layout.fe')
 @section('content') 
 <style>
+    /* Transparent navbar on homepage */
+    #mainNav {
+        background-color: transparent !important;
+        transition: all 0.3s ease;
+    }
+    
+    #mainNav.navbar-shrink {
+        background-color: #212529 !important;
+    }
+    
+    /* Better text styling for mobile */
     .masthead {
         position: relative;
         padding: 15.6rem 0 !important;
@@ -13,8 +24,21 @@
     .masthead-slide.show{opacity:1}
     /* Ensure content sits above slides */
     .masthead .container{position:absolute;bottom:4rem;left:3rem;z-index:2;text-align:left;max-width:none}
-    .masthead-subheading{font-size:1.8rem;color:#ffffff;margin-bottom:0.5rem;font-style:italic;text-shadow:2px 2px 4px rgba(0,0,0,0.7)}
-    .masthead-heading{font-size:3.5rem;color:#ffffff;font-weight:700;line-height:1.2;text-shadow:2px 2px 4px rgba(0,0,0,0.7)}
+    .masthead-subheading{
+        font-size:1.8rem;
+        color:#ffffff;
+        margin-bottom:0.5rem;
+        font-style:italic;
+        text-shadow:3px 3px 6px rgba(0,0,0,0.9);
+        font-weight:400;
+    }
+    .masthead-heading{
+        font-size:3.5rem;
+        color:#ffffff;
+        font-weight:700;
+        line-height:1.2;
+        text-shadow:3px 3px 6px rgba(0,0,0,0.9);
+    }
     /* Navigation buttons */
     .masthead-nav{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
     .masthead-nav button{pointer-events:auto;background:rgba(0,0,0,0.45);border:none;color:#fff;padding:0.6rem 0.9rem;border-radius:4px;margin:0 1rem}
@@ -35,13 +59,18 @@
             padding:0 0.5rem;
         }
         .masthead-subheading{
-            font-size:1.1rem;
-            line-height:1.4;
+            font-size:0.95rem;
+            line-height:1.5;
+            font-weight:300;
+            max-width:90%;
         }
         .masthead-heading{
-            font-size:1.8rem;
-            line-height:1.3;
+            font-size:1.6rem;
+            line-height:1.4;
             word-wrap:break-word;
+            font-weight:700;
+            max-width:90%;
+            margin-bottom:0.5rem;
         }
         .masthead-nav button{
             padding:0.4rem 0.6rem;
@@ -53,10 +82,15 @@
             min-height:500px !important;
         }
         .masthead-heading{
-            font-size:1.5rem;
+            font-size:1.4rem;
+            max-width:95%;
         }
         .masthead-subheading{
-            font-size:1rem;
+            font-size:0.85rem;
+            max-width:95%;
+        }
+        .masthead .container{
+            bottom:1.5rem;
         }
     }
 
