@@ -21,9 +21,19 @@ class FileUploadService
     {
         try {
             $filename = $filename ?? Str::uuid() . '.' . $file->getClientOriginalExtension();
-            $path = $file->storeAs($directory, $filename, 'public');
             
-            return $path ? $filename : false;
+            // Use public_path instead of storage for direct access
+            $destinationPath = public_path('storage/' . $directory);
+            
+            // Create directory if it doesn't exist
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            
+            // Move file to public/storage directory
+            $file->move($destinationPath, $filename);
+            
+            return $filename;
         } catch (\Exception $e) {
             Log::error('File upload failed: ' . $e->getMessage());
             return false;
@@ -62,8 +72,11 @@ class FileUploadService
     public function deleteFile(string $path): bool
     {
         try {
-            if (Storage::disk('public')->exists($path)) {
-                return Storage::disk('public')->delete($path);
+            // Delete from public/storage directory
+            $filePath = public_path('storage/' . $path);
+            
+            if (file_exists($filePath)) {
+                return unlink($filePath);
             }
             return true; // File doesn't exist, consider it deleted
         } catch (\Exception $e) {
