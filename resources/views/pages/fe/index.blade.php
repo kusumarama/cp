@@ -9,20 +9,55 @@
         overflow: hidden;
     }
     .masthead-slider{position:absolute;inset:0;z-index:0}
-    .masthead-slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity 1s ease-in-out}
+    .masthead-slide{position:absolute;inset:0;background-size:cover;background-position:center center;background-repeat:no-repeat;opacity:0;transition:opacity 1s ease-in-out}
     .masthead-slide.show{opacity:1}
     /* Ensure content sits above slides */
     .masthead .container{position:absolute;bottom:4rem;left:3rem;z-index:2;text-align:left;max-width:none}
-    .masthead-subheading{font-size:1.8rem;color:#ffffff;margin-bottom:0.5rem;font-style:italic}
-    .masthead-heading{font-size:3.5rem;color:#ffffff;font-weight:700;line-height:1.2}
+    .masthead-subheading{font-size:1.8rem;color:#ffffff;margin-bottom:0.5rem;font-style:italic;text-shadow:2px 2px 4px rgba(0,0,0,0.7)}
+    .masthead-heading{font-size:3.5rem;color:#ffffff;font-weight:700;line-height:1.2;text-shadow:2px 2px 4px rgba(0,0,0,0.7)}
     /* Navigation buttons */
     .masthead-nav{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
     .masthead-nav button{pointer-events:auto;background:rgba(0,0,0,0.45);border:none;color:#fff;padding:0.6rem 0.9rem;border-radius:4px;margin:0 1rem}
     .masthead-title-wrap{display:none}
     @media (max-width:991px){
-        .masthead .container{left:1.5rem;right:1.5rem;bottom:2rem}
-        .masthead-subheading{font-size:1.3rem}
-        .masthead-heading{font-size:2.2rem}
+        .masthead{
+            min-height:600px !important;
+            padding:8rem 0 !important;
+        }
+        .masthead-slide{
+            background-size:cover;
+            background-position:center center;
+        }
+        .masthead .container{
+            left:1rem;
+            right:1rem;
+            bottom:2rem;
+            padding:0 0.5rem;
+        }
+        .masthead-subheading{
+            font-size:1.1rem;
+            line-height:1.4;
+        }
+        .masthead-heading{
+            font-size:1.8rem;
+            line-height:1.3;
+            word-wrap:break-word;
+        }
+        .masthead-nav button{
+            padding:0.4rem 0.6rem;
+            margin:0 0.5rem;
+        }
+    }
+    @media (max-width:576px){
+        .masthead{
+            min-height:500px !important;
+        }
+        .masthead-heading{
+            font-size:1.5rem;
+        }
+        .masthead-subheading{
+            font-size:1rem;
+        }
     }
 
     /* About split layout (full-width section) */
