@@ -146,7 +146,7 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 id="portofolio_project_name" class="text-uppercase">Project Name</h2>
+                                    <h2 id="portofolio_project_name" class="text-uppercase" style="word-wrap: break-word; overflow-wrap: break-word; hyphens: auto;">Project Name</h2>
                                     <p class="item-intro text-muted"></p>
                                     
                                     <!-- Image Carousel -->
@@ -367,4 +367,24 @@
 
     });
 </script>
+<style>
+    /* Mobile responsive fix for project titles */
+    @media (max-width: 768px) {
+        #portofolio_project_name {
+            font-size: 1.5rem !important;
+            line-height: 1.3 !important;
+            word-break: break-word;
+        }
+        
+        .modal-body h2 {
+            font-size: 1.5rem !important;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        #portofolio_project_name {
+            font-size: 1.2rem !important;
+        }
+    }
+</style>
 @endsection
