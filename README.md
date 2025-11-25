@@ -1,4 +1,4 @@
-# PT Markat Digdaya Konstruksi - Company Profile Website
+# PT Harkat Digdaya Konstruksi - Company Profile Website
 
 ![Laravel](https://img.shields.io/badge/Laravel-10.x-red?style=flat-square&logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.1+-blue?style=flat-square&logo=php)
