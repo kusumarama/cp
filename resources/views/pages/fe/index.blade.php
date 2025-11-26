@@ -59,18 +59,23 @@
             padding:0 0.5rem;
         }
         .masthead-subheading{
-            font-size:0.95rem;
+            font-size:0.85rem;
             line-height:1.5;
             font-weight:300;
             max-width:90%;
         }
         .masthead-heading{
-            font-size:1.6rem;
+            font-size:1.3rem;
             line-height:1.4;
             word-wrap:break-word;
             font-weight:700;
             max-width:90%;
             margin-bottom:0.5rem;
+        }
+        
+        /* Smaller logo on mobile */
+        #mainNav .navbar-brand img {
+            height: 50px !important;
         }
         .masthead-nav button{
             padding:0.4rem 0.6rem;
@@ -82,15 +87,20 @@
             min-height:500px !important;
         }
         .masthead-heading{
-            font-size:1.4rem;
+            font-size:1.1rem;
             max-width:95%;
         }
         .masthead-subheading{
-            font-size:0.85rem;
+            font-size:0.75rem;
             max-width:95%;
         }
         .masthead .container{
             bottom:1.5rem;
+        }
+        
+        /* Even smaller logo on small phones */
+        #mainNav .navbar-brand img {
+            height: 45px !important;
         }
     }
 
