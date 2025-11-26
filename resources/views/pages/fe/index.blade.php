@@ -98,7 +98,7 @@
             bottom:1.5rem;
         }
         
-        /* Even smaller logo on small phones */
+        Even smaller logo on small phones
         #mainNav .navbar-brand img {
             height: 45px !important;
         }
@@ -131,10 +131,9 @@
     /* Clients slider */
     .clients-wrap{position:relative;display:flex;align-items:center;justify-content:center}
     .clients-slider{width:100%;overflow:hidden}
-    .clients-track{display:flex;gap:1.5rem;transition:transform .35s ease}
-    /* increased size: was 80px, enlarge by ~30% -> 104px */
-    .clients-track .client-item{flex:0 0 22%;display:flex;align-items:center;justify-content:center;padding:1rem}
-    .clients-track .client-item img{max-width:100%;max-height:304px;object-fit:contain}
+    .clients-track{display:flex;gap:1.5rem;transition:transform .35s ease;align-items:center}
+    .clients-track .client-item{flex:0 0 20%;display:flex;align-items:center;justify-content:center;padding:1rem;height:120px}
+    .clients-track .client-item img{max-width:100%;max-height:100px;object-fit:contain}
     .clients-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
     .clients-nav button{pointer-events:auto;background:rgba(0,0,0,0.45);border:none;color:#fff;padding:0.6rem 0.9rem;border-radius:4px;margin:0 1rem}
     .clients-nav#clients-prev{left:8px}
