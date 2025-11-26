@@ -27,13 +27,13 @@
     .masthead-subheading{
         font-size:1.8rem;
         color:#ffffff;
-        margin-bottom:0.5rem;
+        margin-bottom:0rem;
         font-style:italic;
         text-shadow:3px 3px 6px rgba(0,0,0,0.9);
         font-weight:400;
     }
     .masthead-heading{
-        font-size:3.5rem;
+        font-size:2.20rem;
         color:#ffffff;
         font-weight:700;
         line-height:1.2;
