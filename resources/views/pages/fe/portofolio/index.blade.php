@@ -2,37 +2,26 @@
 @extends('layout.fe')
 @section('content') 
 <style>
-    /* Transparent navbar at top, solid on scroll */
+    /* Fixed navbar - no shrink on portfolio page */
     #mainNav {
-        padding-top: 1.5rem !important;
-        padding-bottom: 1.5rem !important;
-        background-color: transparent !important;
-        transition: all 0.3s ease;
-    }
-    
-    #mainNav.navbar-shrink {
         padding-top: 1rem !important;
         padding-bottom: 1rem !important;
         background-color: #212529 !important;
     }
-    
     #mainNav .navbar-brand img {
-        height: 65px !important;
+        height: 45px !important;
     }
-    
+    #mainNav.navbar-shrink {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
     #mainNav.navbar-shrink .navbar-brand img {
-        height: 50px !important;
+        height: 45px !important;
     }
 
     /* Portfolio section spacing */
     #portfolio {
         padding-top: 8rem !important;
-    }
-    
-    @media (max-width: 768px) {
-        #portfolio {
-            padding-top: 6rem !important;
-        }
     }
 
     /* Portfolio item styling with border */
@@ -53,7 +42,6 @@
         width: 100%;
         height: 300px;
         object-fit: cover;
-        object-position: center;
     }
 
     .portfolio-caption {
@@ -66,28 +54,11 @@
         font-weight: 700;
         color: #2d5a3d;
         margin-bottom: 0.5rem;
-        word-wrap: break-word;
     }
 
     .portfolio-caption-subheading {
         font-size: 0.9rem;
         margin-bottom: 0.25rem;
-    }
-    
-    /* Mobile optimization */
-    @media (max-width: 768px) {
-        .portfolio-item img {
-            height: 250px;
-        }
-        
-        .portfolio-caption-heading {
-            font-size: 1rem;
-            line-height: 1.3;
-        }
-        
-        .portfolio-caption-subheading {
-            font-size: 0.85rem;
-        }
     }
 
     /* Carousel styling */
@@ -101,25 +72,6 @@
     .carousel-inner {
         border-radius: 8px;
         background: #f8f9fa;
-    }
-    
-    .carousel-inner img {
-        object-fit: contain !important;
-        background: white;
-    }
-    
-    @media (max-width: 768px) {
-        .carousel-inner img {
-            max-height: 350px !important;
-        }
-        
-        .modal-dialog {
-            margin: 0.5rem;
-        }
-        
-        .modal-body {
-            padding: 1rem;
-        }
     }
     
     /* Contact section */

@@ -8,14 +8,14 @@
         background-color: #212529 !important;
     }
     #mainNav .navbar-brand img {
-        height: 65px !important;
+        height: 45px !important;
     }
     #mainNav.navbar-shrink {
         padding-top: 1rem !important;
         padding-bottom: 1rem !important;
     }
     #mainNav.navbar-shrink .navbar-brand img {
-        height: 65px !important;
+        height: 45px !important;
     }
 
     /* About section spacing */
