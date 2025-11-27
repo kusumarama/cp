@@ -22,7 +22,7 @@ class StatisticController extends Controller
     public function index()
     {
         $statistics = Statistic::orderBy('order')->get();
-        return view('pages.admin.statistic.index', compact('statistics'));
+        return view('pages.editor.statistic.index', compact('statistics'));
     }
 
     /**
@@ -30,7 +30,7 @@ class StatisticController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.statistic.create');
+        return view('pages.editor.statistic.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class StatisticController extends Controller
     public function edit(string $id)
     {
         $statistic = Statistic::findOrFail($id);
-        return view('pages.admin.statistic.edit', compact('statistic'));
+        return view('pages.editor.statistic.edit', compact('statistic'));
     }
 
     /**
