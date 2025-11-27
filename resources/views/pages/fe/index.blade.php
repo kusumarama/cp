@@ -157,8 +157,8 @@
     }
     /* Statistics section */
     .stats-section{padding:4rem 0;background:#ffffff}
-    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1400px;margin:0 auto}
-    .stat-card{background:#46584d ;border-radius:18px;padding:2.5rem 2rem;color:#fff;display:flex;align-items:center;gap:1.5rem;box-shadow:0 4px 15px rgba(0,0,0,0.15);transition:transform .3s ease}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1400px;margin:0 auto;justify-items:center}
+    .stat-card{background:#46584d;border-radius:18px;padding:2.5rem 2rem;color:#fff;display:flex;align-items:center;gap:1.5rem;box-shadow:0 4px 15px rgba(0,0,0,0.15);transition:transform .3s ease;width:100%;max-width:350px}
     .stat-card:hover{transform:translateY(-5px)}
     .stat-icon{width:80px;height:80px;opacity:0.9;flex-shrink:0;display:flex;align-items:center;justify-content:center}
     .stat-icon img{max-width:100%;max-height:100%;object-fit:contain;filter:brightness(0) invert(1)}
@@ -166,7 +166,7 @@
     .stat-label{font-size:0.95rem;margin-bottom:0.5rem;opacity:0.95;font-weight:500}
     .stat-value{font-size:2.2rem;font-weight:700;line-height:1.1}
     @media (max-width:1200px){
-        .stats-grid{grid-template-columns:repeat(2,1fr);padding:0 1.5rem}
+        .stats-grid{padding:0 1.5rem}
     }
     @media (max-width:767px){
         .stats-grid{grid-template-columns:1fr}
@@ -595,10 +595,10 @@
                 if (response.statistics && response.statistics.length > 0) {
                     $('#statistics_content').empty();
                     response.statistics.forEach(function(stat){
-                        let iconSrc = stat.icon ? `/storage/${stat.icon}` : '{{asset("template_fe/assets/img/medal.png")}}';
+                        let iconSrc = stat.icon ? `/storage/${stat.icon}` : '/template_fe/assets/img/medal.png';
                         let statCard = `
                         <div class="stat-card">
-                            <div class="stat-icon"><img src="${iconSrc}" alt="icon"></div>
+                            <div class="stat-icon"><img src="${iconSrc}" alt="${stat.label}" onerror="this.src='/template_fe/assets/img/medal.png'"></div>
                             <div class="stat-content">
                                 <div class="stat-label">${stat.label}</div>
                                 <div class="stat-value">${stat.value}</div>
