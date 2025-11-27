@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Client;
 use App\Models\Design;
 use App\Models\Legality;
+use App\Models\Statistic;
 use Exception;
 use Nette\Utils\Json;
 use App\Models\Service;
@@ -49,6 +50,7 @@ class PublicController extends Controller
         $legality = Legality::with('images')->select('id','title','subtitle','image','slug')->get();
         $about = About::select('title', 'subtitle','image')->get();
         $client = Client::select('title', 'image')->get();
+        $statistics = Statistic::select('label', 'value', 'icon')->orderBy('order')->get();
         $data = [
             'master_head' => $masterhead,
             'service' => $service,
@@ -57,6 +59,7 @@ class PublicController extends Controller
             'legality' => $legality,
             'about' => $about,
             'client' => $client,
+            'statistics' => $statistics,
         ];
         return response()->json($data);
     }

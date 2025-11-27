@@ -54,6 +54,12 @@
                         <span>Client</span></a>
             </li>
 
+            <li class="nav-item {{ Request ::is('editor/statistic*')? 'active' : '' }}">
+                <a class="nav-link" href="{{route('statistic.index') }}">
+                    <i class="fas fa-fw fa-chart-bar"></i>
+                    <span>Statistics</span></a>
+            </li>
+
             </li>
                 <li class="nav-item {{ Request ::is('editor/portofolio')? 'active' : '' }}">
                     <a class="nav-link" href="{{route('editor.portofolio') }}">

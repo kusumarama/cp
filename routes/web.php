@@ -132,4 +132,6 @@ Route::prefix('editor')->middleware('auth')->group(function () {
         Route::post('/legality/images/add', 'addImages')->name('editor.legality.images.add');
     });
 
+    Route::resource('/statistic', \App\Http\Controllers\Admin\StatisticController::class);
+
 });

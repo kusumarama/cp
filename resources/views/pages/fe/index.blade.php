@@ -256,35 +256,8 @@
         <!-- Statistics -->
         <section class="stats-section" id="statistics">
             <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon"><img src="{{asset('template_fe/assets/img/arch.png')}}" alt="icon"></div>
-                        <div class="stat-content">
-                            <div class="stat-label">Designs Completed</div>
-                            <div class="stat-value">10</div>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><img src="{{asset('template_fe/assets/img/build.png')}}" alt="icon"></div>
-                        <div class="stat-content">
-                            <div class="stat-label">Buildings Completed</div>
-                            <div class="stat-value">8</div>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><img src="{{asset('template_fe/assets/img/team.png')}}" alt="icon"></div>
-                        <div class="stat-content">
-                            <div class="stat-label">Our Professionals</div>
-                            <div class="stat-value">48</div>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><img src="{{asset('template_fe/assets/img/medal.png')}}" alt="icon"></div>
-                        <div class="stat-content">
-                            <div class="stat-label">Achievement</div>
-                            <div class="stat-value">20</div>
-                        </div>
-                    </div>
+                <div class="stats-grid" id="statistics_content">
+                    <!-- Statistics will be loaded dynamically via AJAX -->
                 </div>
             </div>
         </section>
@@ -618,7 +591,22 @@
                     $('#about_body').text(a.body || a.subtitle || '');
                 }
 
-                
+                // Statistics section
+                if (response.statistics && response.statistics.length > 0) {
+                    $('#statistics_content').empty();
+                    response.statistics.forEach(function(stat){
+                        let iconSrc = stat.icon ? `/storage/${stat.icon}` : '{{asset("template_fe/assets/img/medal.png")}}';
+                        let statCard = `
+                        <div class="stat-card">
+                            <div class="stat-icon"><img src="${iconSrc}" alt="icon"></div>
+                            <div class="stat-content">
+                                <div class="stat-label">${stat.label}</div>
+                                <div class="stat-value">${stat.value}</div>
+                            </div>
+                        </div>`;
+                        $('#statistics_content').append(statCard);
+                    });
+                }
 
                 // Clients slider population and controls
                 if (client && client.length > 0) {
