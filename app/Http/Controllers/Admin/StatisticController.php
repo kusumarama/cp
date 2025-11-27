@@ -48,8 +48,8 @@ class StatisticController extends Controller
         $data = $request->only(['label', 'value', 'order']);
         
         if ($request->hasFile('icon')) {
-            $filename = $this->fileUploadService->uploadFile($request->file('icon'), 'statistics');
-            $data['icon'] = 'statistics/' . $filename;
+            $filename = $this->fileUploadService->uploadFile($request->file('icon'), 'img/statistics');
+            $data['icon'] = 'img/statistics/' . $filename;
         }
 
         Statistic::create($data);
@@ -86,8 +86,8 @@ class StatisticController extends Controller
             if ($statistic->icon) {
                 $this->fileUploadService->deleteFile($statistic->icon);
             }
-            $filename = $this->fileUploadService->uploadFile($request->file('icon'), 'statistics');
-            $data['icon'] = 'statistics/' . $filename;
+            $filename = $this->fileUploadService->uploadFile($request->file('icon'), 'img/statistics');
+            $data['icon'] = 'img/statistics/' . $filename;
         }
 
         $statistic->update($data);
