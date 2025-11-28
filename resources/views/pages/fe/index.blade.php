@@ -322,7 +322,7 @@
             <div class="core-grid" role="list">
                 <div class="core-item" role="listitem">
                     <div class="title">President Commissioner</div>
-                    <div class="name">Henny Tri Prawanti, S.P.</div>
+                    <div class="name">Ir. Yulianto, S.T, M.M., IPM.,<br> ASEAN Eng, APEC Eng</div>
                 </div>
                 <div class="core-item" role="listitem">
                     <div class="title">President Director</div>
