@@ -21,14 +21,27 @@
                         <li class="nav-item"><a class="nav-link {{ request()->is('design') ? 'active' : '' }}" href="{{ route('design.index') }}">{{ app()->getLocale() == 'id' ? 'Desain' : 'Design' }}</a></li>
                         <li class="nav-item"><a class="nav-link {{ request()->is('legality') ? 'active' : '' }}" href="{{ route('legality.index') }}">{{ app()->getLocale() == 'id' ? 'Legalitas' : 'Legality' }}</a></li>
                         <!-- <li class="nav-item"><a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="{{ url('/#about') }}">About</a></li> -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        
+                        <!-- Language switcher - Desktop (Dropdown) -->
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-globe"></i> {{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item" href="{{ route('switch.language', 'en') }}" onclick="event.stopPropagation();">English</a></li>
-                                <li><a class="dropdown-item" href="{{ route('switch.language', 'id') }}" onclick="event.stopPropagation();">Bahasa Indonesia</a></li>
+                                <li><a class="dropdown-item" href="{{ route('switch.language', 'en') }}">English</a></li>
+                                <li><a class="dropdown-item" href="{{ route('switch.language', 'id') }}">Bahasa Indonesia</a></li>
                             </ul>
+                        </li>
+                        
+                        <!-- Language switcher - Mobile (Direct links) -->
+                        <li class="nav-item d-lg-none">
+                            <span class="nav-link disabled"><i class="fas fa-globe"></i> {{ app()->getLocale() == 'id' ? 'Bahasa' : 'Language' }}</span>
+                        </li>
+                        <li class="nav-item d-lg-none" style="padding-left: 1rem;">
+                            <a class="nav-link {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ route('switch.language', 'en') }}">English</a>
+                        </li>
+                        <li class="nav-item d-lg-none" style="padding-left: 1rem;">
+                            <a class="nav-link {{ app()->getLocale() == 'id' ? 'active' : '' }}" href="{{ route('switch.language', 'id') }}">Bahasa Indonesia</a>
                         </li>
                     </ul>
                 </div>

@@ -8,8 +8,16 @@
         <link href="{{ asset ('template_fe/css/loader.css')}}" rel="stylesheet" />
         
         <style>
-            /* Mobile dropdown fix */
+            /* Mobile language switcher */
             @media (max-width: 991.98px) {
+                .navbar-collapse .nav-link.disabled {
+                    opacity: 0.6;
+                    font-size: 0.85rem;
+                    padding-top: 0.75rem;
+                    padding-bottom: 0.25rem;
+                    cursor: default;
+                }
+                
                 .navbar-collapse .dropdown-menu {
                     position: static !important;
                     transform: none !important;
