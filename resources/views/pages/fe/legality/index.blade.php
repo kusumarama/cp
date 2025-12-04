@@ -380,9 +380,12 @@
             },
             success: function(response) {               
                 let legality = response.legality;
+                let locale = '{{ app()->getLocale() }}';
                 if (legality && legality.length > 0) {
                     $('#legality_content').empty();
                     legality.forEach(function(legality){
+                        let title = locale === 'id' ? (legality.title_id || legality.title) : legality.title;
+                        let subtitle = locale === 'id' ? (legality.subtitle_id || legality.subtitle) : legality.subtitle;
                         let legalityItem = `
                          <div class="col-lg-2_4 col-md-4 col-sm-6 mb-6">
                             <div class="legality-item">
@@ -390,11 +393,11 @@
                                     <div class="legality-hover">
                                         <div class="legality-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                     </div>
-                                    <img class="img-fluid" src="/storage/${legality.image}" alt="${legality.title}"/>
+                                    <img class="img-fluid" src="/storage/${legality.image}" alt="${title}"/>
                                 </a>
                                 <div class="legality-caption">
-                                    <div class="legality-caption-heading">${legality.title}</div>
-                                    <div class="legality-caption-subheading text-muted">${legality.subtitle}</div>
+                                    <div class="legality-caption-heading">${title}</div>
+                                    <div class="legality-caption-subheading text-muted">${subtitle}</div>
                                 </div>
                             </div>
                         </div>`;
@@ -425,8 +428,9 @@
                 success:function(data){
                     if(data.success===1){
                         let legality = data.data;
-                        let title = legality.title;
-                        let subtitle = legality.subtitle;
+                        let locale = '{{ app()->getLocale() }}';
+                        let title = locale === 'id' ? (legality.title_id || legality.title) : legality.title;
+                        let subtitle = locale === 'id' ? (legality.subtitle_id || legality.subtitle) : legality.subtitle;
                         let updated_at = legality.updated_at; 
                         let image = legality.image;
                         
