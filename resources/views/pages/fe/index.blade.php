@@ -596,9 +596,9 @@
                     let clientIndex = 0;
                     function visibleCount() {
                         const w = $(window).width();
-                        if (w < 576) return 2;
-                        if (w < 768) return 3;
-                        if (w < 992) return 4;
+                        if (w < 576) return 2; // Show 2 at a time on mobile
+                        if (w < 768) return 2;
+                        if (w < 992) return 3;
                         return 5;
                     }
 
@@ -607,7 +607,9 @@
                         const item = $('#clients-track .client-item').first();
                         if (!item.length) return;
                         const itemWidth = item.outerWidth(true);
-                        const maxIndex = Math.max(0, client.length - count);
+                        // Fix: Ensure we can scroll to see all logos
+                        // For 7 logos showing 2 at a time, maxIndex should be 6 (positions 0-6)
+                        const maxIndex = Math.max(0, client.length - 1);
                         clientIndex = Math.min(clientIndex, maxIndex);
                         const move = clientIndex * itemWidth;
                         $('#clients-track').css('transform', 'translateX(-'+move+'px)');
