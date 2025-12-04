@@ -18,8 +18,8 @@
     }
     .prof-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2.5rem;
         max-width: 1400px;
         margin: 0 auto;
         padding: 0 2rem;
@@ -31,6 +31,8 @@
         box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
+        max-width: 350px;
+        margin: 0 auto;
     }
     .prof-card:hover {
         transform: translateY(-10px);
@@ -38,10 +40,11 @@
     }
     .prof-photo {
         width: 100%;
-        padding-top: 100%;
-        background-size: cover;
-        background-position: center;
-        position: relative;
+        height: 300px;
+        object-fit: contain;
+        object-position: center;
+        background: #f8f9fa;
+        display: block;
     }
     .prof-info {
         padding: 1.2rem;
@@ -81,8 +84,11 @@
             font-size: 2rem;
         }
         .prof-grid {
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
+        }
+        .prof-photo {
+            height: 250px;
         }
     }
 </style>
@@ -96,8 +102,20 @@
 
 <section class="professionals-section">
     <div class="container">
-        <div class="prof-grid" id="management-grid">
-            <!-- Management will be loaded here via AJAX -->
+        <div class="prof-grid">
+            @foreach($professionals as $professional)
+            <div class="prof-card" data-bs-toggle="modal" data-bs-target="#professionalModal" 
+                 data-name="{{ $professional->name }}" 
+                 data-position="{{ $professional->position }}" 
+                 data-photo="{{ asset('storage/' . $professional->photo) }}" 
+                 data-details="{{ $professional->details }}">
+                <img src="{{ asset('storage/' . $professional->photo) }}" alt="{{ $professional->name }}" class="prof-photo">
+                <div class="prof-info">
+                    <div class="prof-name">{{ $professional->name }}</div>
+                    <div class="prof-position">{{ $professional->position }}</div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -124,51 +142,17 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        $.ajax({
-            url: "{{ route('public.data') }}",
-            method: 'GET',
-            beforeSend: function() {
-                $('.loader-overlay').css('display', 'flex');
-            },
-            success: function(response) {
-                if (response.professionals && response.professionals.management) {
-                    const management = response.professionals.management;
-                    $('#management-grid').empty();
-                    
-                    management.forEach(function(prof) {
-                        const card = `
-                            <div class="prof-card" data-bs-toggle="modal" data-bs-target="#professionalModal"
-                                 data-name="${prof.name}" 
-                                 data-position="${prof.position}"
-                                 data-photo="/storage/${prof.photo}"
-                                 data-details="${prof.details || ''}">
-                                <div class="prof-photo" style="background-image: url('/storage/${prof.photo}')"></div>
-                                <div class="prof-info">
-                                    <div class="prof-name">${prof.name}</div>
-                                    <div class="prof-position">${prof.position}</div>
-                                </div>
-                            </div>
-                        `;
-                        $('#management-grid').append(card);
-                    });
-
-                    // Modal handler
-                    $('.prof-card').on('click', function() {
-                        const name = $(this).data('name');
-                        const position = $(this).data('position');
-                        const photo = $(this).data('photo');
-                        const details = $(this).data('details');
-                        
-                        $('#modal-name').text(name);
-                        $('#modal-position').text(position);
-                        $('#modal-photo').attr('src', photo).attr('alt', name);
-                        $('#modal-details').html(details ? '<p>' + details + '</p>' : '<p class="text-muted">No additional information available.</p>');
-                    });
-                }
-            },
-            complete: function() {
-                $('.loader-overlay').css('display', 'none');
-            }
+        // Modal handler
+        $('.prof-card').on('click', function() {
+            const name = $(this).data('name');
+            const position = $(this).data('position');
+            const photo = $(this).data('photo');
+            const details = $(this).data('details');
+            
+            $('#modal-name').text(name);
+            $('#modal-position').text(position);
+            $('#modal-photo').attr('src', photo).attr('alt', name);
+            $('#modal-details').html(details ? '<p>' + details + '</p>' : '<p class="text-muted">No additional information available.</p>');
         });
     });
 </script>

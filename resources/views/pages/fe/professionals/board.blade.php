@@ -16,13 +16,18 @@
         padding: 80px 0;
         background: #f8f9fa;
     }
-    .prof-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
+    .board-hierarchy {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
+    }
+    .hierarchy-row {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 4rem;
+        gap: 2rem;
+        flex-wrap: wrap;
     }
     .prof-card {
         background: white;
@@ -31,6 +36,11 @@
         box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
+        max-width: 300px;
+        flex: 0 1 auto;
+    }
+    .hierarchy-row.top .prof-card {
+        max-width: 350px;
     }
     .prof-card:hover {
         transform: translateY(-10px);
@@ -38,10 +48,11 @@
     }
     .prof-photo {
         width: 100%;
-        padding-top: 100%;
-        background-size: cover;
-        background-position: center;
-        position: relative;
+        height: 320px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        background: #f8f9fa;
     }
     .prof-info {
         padding: 1.5rem;
@@ -80,9 +91,14 @@
         .professionals-header h1 {
             font-size: 2rem;
         }
-        .prof-grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        .hierarchy-row {
+            margin-bottom: 2rem;
+        }
+        .prof-card {
+            max-width: 250px;
+        }
+        .prof-photo {
+            height: 280px;
         }
     }
 </style>
@@ -96,8 +112,67 @@
 
 <section class="professionals-section">
     <div class="container">
-        <div class="prof-grid" id="board-grid">
-            <!-- Board members will be loaded here via AJAX -->
+        <div class="board-hierarchy">
+            @php
+                // Group professionals by hierarchy level
+                $presidentCommissioner = $professionals->where('position', 'President Commissioner')->sortBy('order');
+                $presidentDirector = $professionals->where('position', 'President Director')->sortBy('order');
+                $directors = $professionals->whereIn('position', ['Director', 'Independent Director', 'Independent Commissioner'])->sortBy('order');
+            @endphp
+
+            @if($presidentCommissioner->count() > 0)
+            <div class="hierarchy-row top">
+                @foreach($presidentCommissioner as $professional)
+                <div class="prof-card" data-bs-toggle="modal" data-bs-target="#professionalModal" 
+                     data-name="{{ $professional->name }}" 
+                     data-position="{{ $professional->position }}" 
+                     data-photo="{{ asset('storage/' . $professional->photo) }}" 
+                     data-details="{{ $professional->details }}">
+                    <img src="{{ asset('storage/' . $professional->photo) }}" alt="{{ $professional->name }}" class="prof-photo">
+                    <div class="prof-info">
+                        <h3 class="prof-name">{{ $professional->name }}</h3>
+                        <p class="prof-position">{{ $professional->position }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @endif
+
+            @if($presidentDirector->count() > 0)
+            <div class="hierarchy-row middle">
+                @foreach($presidentDirector as $professional)
+                <div class="prof-card" data-bs-toggle="modal" data-bs-target="#professionalModal" 
+                     data-name="{{ $professional->name }}" 
+                     data-position="{{ $professional->position }}" 
+                     data-photo="{{ asset('storage/' . $professional->photo) }}" 
+                     data-details="{{ $professional->details }}">
+                    <img src="{{ asset('storage/' . $professional->photo) }}" alt="{{ $professional->name }}" class="prof-photo">
+                    <div class="prof-info">
+                        <h3 class="prof-name">{{ $professional->name }}</h3>
+                        <p class="prof-position">{{ $professional->position }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @endif
+
+            @if($directors->count() > 0)
+            <div class="hierarchy-row bottom">
+                @foreach($directors as $professional)
+                <div class="prof-card" data-bs-toggle="modal" data-bs-target="#professionalModal" 
+                     data-name="{{ $professional->name }}" 
+                     data-position="{{ $professional->position }}" 
+                     data-photo="{{ asset('storage/' . $professional->photo) }}" 
+                     data-details="{{ $professional->details }}">
+                    <img src="{{ asset('storage/' . $professional->photo) }}" alt="{{ $professional->name }}" class="prof-photo">
+                    <div class="prof-info">
+                        <h3 class="prof-name">{{ $professional->name }}</h3>
+                        <p class="prof-position">{{ $professional->position }}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @endif
         </div>
     </div>
 </section>
@@ -124,51 +199,17 @@
 @section('script')
 <script>
     $(document).ready(function() {
-        $.ajax({
-            url: "{{ route('public.data') }}",
-            method: 'GET',
-            beforeSend: function() {
-                $('.loader-overlay').css('display', 'flex');
-            },
-            success: function(response) {
-                if (response.professionals && response.professionals.board_of_director) {
-                    const board = response.professionals.board_of_director;
-                    $('#board-grid').empty();
-                    
-                    board.forEach(function(prof) {
-                        const card = `
-                            <div class="prof-card" data-bs-toggle="modal" data-bs-target="#professionalModal"
-                                 data-name="${prof.name}" 
-                                 data-position="${prof.position}"
-                                 data-photo="/storage/${prof.photo}"
-                                 data-details="${prof.details || ''}">
-                                <div class="prof-photo" style="background-image: url('/storage/${prof.photo}')"></div>
-                                <div class="prof-info">
-                                    <div class="prof-name">${prof.name}</div>
-                                    <div class="prof-position">${prof.position}</div>
-                                </div>
-                            </div>
-                        `;
-                        $('#board-grid').append(card);
-                    });
-
-                    // Modal handler
-                    $('.prof-card').on('click', function() {
-                        const name = $(this).data('name');
-                        const position = $(this).data('position');
-                        const photo = $(this).data('photo');
-                        const details = $(this).data('details');
-                        
-                        $('#modal-name').text(name);
-                        $('#modal-position').text(position);
-                        $('#modal-photo').attr('src', photo).attr('alt', name);
-                        $('#modal-details').html(details ? '<p>' + details + '</p>' : '<p class="text-muted">No additional information available.</p>');
-                    });
-                }
-            },
-            complete: function() {
-                $('.loader-overlay').css('display', 'none');
-            }
+        // Modal handler
+        $('.prof-card').on('click', function() {
+            const name = $(this).data('name');
+            const position = $(this).data('position');
+            const photo = $(this).data('photo');
+            const details = $(this).data('details');
+            
+            $('#modal-name').text(name);
+            $('#modal-position').text(position);
+            $('#modal-photo').attr('src', photo).attr('alt', name);
+            $('#modal-details').html(details ? '<p>' + details + '</p>' : '<p class="text-muted">No additional information available.</p>');
         });
     });
 </script>

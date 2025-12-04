@@ -41,14 +41,22 @@ class PublicController extends Controller
         return view('pages.fe.legality.index');
     }
 
-    public function boardOfDirectors()
+    public function board()
     {
-        return view('pages.fe.professionals.board');
+        $professionals = Professional::where('category', 'board')
+            ->orderBy('order')
+            ->get();
+        
+        return view('pages.fe.professionals.board', compact('professionals'));
     }
 
     public function management()
     {
-        return view('pages.fe.professionals.management');
+        $professionals = Professional::where('category', 'management')
+            ->orderBy('order')
+            ->get();
+        
+        return view('pages.fe.professionals.management', compact('professionals'));
     }
 
     public function getdata():JsonResponse
@@ -66,12 +74,12 @@ class PublicController extends Controller
         // Get professionals grouped by category
         $professionals = [
             'board_of_director' => Professional::where('category', 'board_of_director')
-                ->select('name', 'position', 'photo', 'details')
                 ->orderBy('order')
+                ->select('name', 'position', 'photo', 'details')
                 ->get(),
             'management' => Professional::where('category', 'management')
-                ->select('name', 'position', 'photo', 'details')
                 ->orderBy('order')
+                ->select('name', 'position', 'photo', 'details')
                 ->get(),
         ];
         

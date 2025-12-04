@@ -140,21 +140,6 @@
     .clients-nav#clients-next{right:8px}
     @media (max-width:991px){.clients-track .client-item{flex:0 0 23%}}
     @media (max-width:767px){.clients-track .client-item{flex:0 0 30%}}
-    /* Core Management section */
-    .core-management{padding:5rem 0;background:#ffffff}
-    .core-management .section-heading{font-size:3.25rem;color:#173f2e;margin-bottom:2.5rem}
-    .core-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:3rem;align-items:center;text-align:center;max-width:1200px;margin:0 auto;padding:2rem}
-    .core-item .title{font-weight:700;color:#16422f;margin-bottom:.75rem}
-    .core-item .name{font-size:1.8rem;font-weight:700;color:#16422f}
-    /* dotted cross lines */
-    .core-grid:before{content:"";position:absolute;left:5%;right:5%;top:50%;border-top:3px dotted rgba(22,66,47,0.5);transform:translateY(-50%);pointer-events:none}
-    .core-grid:after{content:"";position:absolute;top:10%;bottom:10%;left:50%;border-left:3px dotted rgba(22,66,47,0.5);transform:translateX(-50%);pointer-events:none}
-    @media (max-width:991px){
-        .core-grid{grid-template-columns:1fr;grid-template-rows:auto auto auto auto;padding:1.25rem}
-        .core-grid:before{left:10%;right:10%}
-        .core-grid:after{display:none}
-        .core-item{padding:1.5rem 0}
-    }
     /* Statistics section */
     .stats-section{padding:4rem 0;background:#ffffff}
     .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1400px;margin:0 auto;justify-items:center}
@@ -310,31 +295,6 @@
                         <img src="{{asset('template_fe/assets/img/tabligh.png')}}" alt="Tabligh">
                     </div>
                     <h3>Tabligh</h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Management -->
-        <section class="page-section core-management" id="core-management">
-            <div class="container text-center">
-                <h2 class="section-heading text-uppercase">Core Management</h2>
-            </div>
-            <div class="core-grid" role="list">
-                <div class="core-item" role="listitem">
-                    <div class="title">President Commissioner</div>
-                    <div class="name">Ir. Yulianto, S.T, M.M., IPM.,<br> ASEAN Eng, APEC Eng</div>
-                </div>
-                <div class="core-item" role="listitem">
-                    <div class="title">President Director</div>
-                    <div class="name">Muhammad Faishal Hafizh,<br>S.PWK, M.RK</div>
-                </div>
-                <div class="core-item" role="listitem">
-                    <div class="title">Director</div>
-                    <div class="name">M. Ali Amran, S.T., M.T.</div>
-                </div>
-                <div class="core-item" role="listitem">
-                    <div class="title">Director</div>
-                    <div class="name">Agus Erwanto, S.T</div>
                 </div>
             </div>
         </section>
