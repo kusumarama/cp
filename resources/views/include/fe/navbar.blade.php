@@ -21,6 +21,15 @@
                         <li class="nav-item"><a class="nav-link {{ request()->is('design') ? 'active' : '' }}" href="{{ route('design.index') }}">Design</a></li>
                         <li class="nav-item"><a class="nav-link {{ request()->is('legality') ? 'active' : '' }}" href="{{ route('legality.index') }}">Legality</a></li>
                         <!-- <li class="nav-item"><a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="{{ url('/#about') }}">About</a></li> -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe"></i> {{ app()->getLocale() == 'id' ? 'ID' : 'EN' }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="{{ route('switch.language', 'en') }}">English</a></li>
+                                <li><a class="dropdown-item" href="{{ route('switch.language', 'id') }}">Bahasa Indonesia</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
