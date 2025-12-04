@@ -267,7 +267,7 @@
         <section class="page-section bg-light" id="legality">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Lisensi' : 'Certified Projects' }}</h2>
+                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Sertifikat' : 'Certified Projects' }}</h2>
                     <!-- <h3 class="section-subheading text-muted">{{ app()->getLocale() == 'id' ? 'Lihat proyek kami yang tersertifikasi dan sesuai hukum' : 'View our legally certified and compliant projects' }}</h3> -->
                 </div>
                 <div class="row" id="legality_content">

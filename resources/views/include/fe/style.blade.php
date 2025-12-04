@@ -6,3 +6,30 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset ('template_fe/css/styles.css') }}?v={{ time() }}" rel="stylesheet" />
         <link href="{{ asset ('template_fe/css/loader.css')}}" rel="stylesheet" />
+        
+        <style>
+            /* Mobile dropdown fix */
+            @media (max-width: 991.98px) {
+                .navbar-collapse .dropdown-menu {
+                    position: static !important;
+                    transform: none !important;
+                    border: none;
+                    background-color: transparent;
+                    padding-left: 1rem;
+                }
+                
+                .navbar-collapse .dropdown-menu .dropdown-item {
+                    color: rgba(255, 255, 255, 0.7);
+                    padding: 0.5rem 1rem;
+                }
+                
+                .navbar-collapse .dropdown-menu .dropdown-item:hover {
+                    color: #ffc800;
+                    background-color: transparent;
+                }
+                
+                .navbar-nav .dropdown-toggle::after {
+                    vertical-align: middle;
+                }
+            }
+        </style>
