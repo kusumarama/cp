@@ -25,5 +25,14 @@
         <!-- Bootstrap core JS-->
          @include('include.fe.script')
          @yield('script')
+
+
+         <script>
+
+             $(window).on('load', function() { $('.loader-overlay').fadeOut(300); });
+
+             setTimeout(function() { $('.loader-overlay').fadeOut(300); }, 2000);
+
+         </script>
     </body>
 </html>
