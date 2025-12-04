@@ -139,13 +139,14 @@
     .clients-nav#clients-prev{left:8px}
     .clients-nav#clients-next{right:8px}
     @media (max-width:991px){
-        .clients-track .client-item{flex:0 0 40%;height:160px}
-        .clients-track .client-item img{max-height:110px}
+        .clients-track .client-item{flex:0 0 33%;height:200px;padding:1.5rem}
+        .clients-track .client-item img{max-width:90%;max-height:140px}
     }
     @media (max-width:767px){
-        .clients-track .client-item{flex:0 0 45%;height:180px;padding:1.5rem}
-        .clients-track .client-item img{max-height:130px}
+        .clients-track .client-item{flex:0 0 48%;height:220px;padding:2rem 1rem}
+        .clients-track .client-item img{max-width:85%;max-height:160px}
         .clients-wrap{padding:0 50px}
+        .clients-track{gap:1rem}
     }
     /* Statistics section */
     .stats-section{padding:4rem 0;background:#ffffff}
