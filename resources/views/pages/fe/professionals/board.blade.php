@@ -73,10 +73,10 @@
         width: 200px;
         height: 200px;
         border-radius: 50%;
-        object-fit: cover;
+        object-fit: contain;
         margin: 0 auto 2rem;
         display: block;
-        border: 5px solid #46584d;
+        border: 5px solid #46584d;`r`n        background: #f8f9fa;
     }
     .modal-title {
         color: #2d3a32;
