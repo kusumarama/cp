@@ -617,7 +617,7 @@
 
                     $(window).on('resize', function(){ updateClients(); });
                     $('#clients-next').on('click', function(){
-                        const maxIndex = Math.max(0, client.length - visibleCount());
+                        const maxIndex = Math.max(0, client.length - 1);
                         clientIndex = Math.min(clientIndex+1, maxIndex);
                         updateClients();
                     });
@@ -628,14 +628,14 @@
 
                     // autoplay with pause on hover
                     let clientAuto = setInterval(function(){
-                        const maxIndex = Math.max(0, client.length - visibleCount());
+                        const maxIndex = Math.max(0, client.length - 1);
                         clientIndex = (clientIndex + 1) > maxIndex ? 0 : clientIndex + 1;
                         updateClients();
                     }, 4000);
 
                     $('.clients-wrap').on('mouseenter', function(){ clearInterval(clientAuto); }).on('mouseleave', function(){
                         clientAuto = setInterval(function(){
-                            const maxIndex = Math.max(0, client.length - visibleCount());
+                            const maxIndex = Math.max(0, client.length - 1);
                             clientIndex = (clientIndex + 1) > maxIndex ? 0 : clientIndex + 1;
                             updateClients();
                         }, 4000);
