@@ -37,7 +37,7 @@ Route::controller(PublicController::class)->group(function () {
     Route::get('portfolio', 'portfolio')->name('portfolio.index');
     Route::get('design', 'design')->name('design.index');
     Route::get('legality', 'legality')->name('legality.index');
-    Route::get('board-of-directors', 'boardOfDirectors')->name('board.index');
+    Route::get('board-of-directors', 'board')->name('board.index');
     Route::get('management', 'management')->name('management.index');
 });
 Route::controller(AuthController::class)->middleware('guest')->group(function () {
