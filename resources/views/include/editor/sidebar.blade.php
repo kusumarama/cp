@@ -60,6 +60,12 @@
                     <span>Statistics</span></a>
             </li>
 
+            <li class="nav-item {{ Request ::is('editor/professional*')? 'active' : '' }}">
+                <a class="nav-link" href="{{route('editor.professional') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Our Professionals</span></a>
+            </li>
+
             </li>
                 <li class="nav-item {{ Request ::is('editor/portofolio')? 'active' : '' }}">
                     <a class="nav-link" href="{{route('editor.portofolio') }}">

@@ -37,6 +37,8 @@ Route::controller(PublicController::class)->group(function () {
     Route::get('portfolio', 'portfolio')->name('portfolio.index');
     Route::get('design', 'design')->name('design.index');
     Route::get('legality', 'legality')->name('legality.index');
+    Route::get('board-of-directors', 'boardOfDirectors')->name('board.index');
+    Route::get('management', 'management')->name('management.index');
 });
 Route::controller(AuthController::class)->middleware('guest')->group(function () {
     Route::get('login', 'index')->name('login');
@@ -133,5 +135,14 @@ Route::prefix('editor')->middleware('auth')->group(function () {
     });
 
     Route::resource('/statistic', \App\Http\Controllers\Admin\StatisticController::class);
+
+    Route::controller(\App\Http\Controllers\editor\ProfessionalController::class)->group(function () {
+        Route::get('/professional', 'index')->name('editor.professional');
+        Route::get('/professional/create', 'create')->name('editor.professional.create');
+        Route::post('/professional/store', 'store')->name('editor.professional.store');
+        Route::get('/professional/{id}/edit', 'edit')->name('editor.professional.edit');
+        Route::put('/professional/{id}', 'update')->name('editor.professional.update');
+        Route::delete('/professional/{id}', 'destroy')->name('editor.professional.destroy');
+    });
 
 });

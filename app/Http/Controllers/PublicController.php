@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Design;
 use App\Models\Legality;
 use App\Models\Statistic;
+use App\Models\Professional;
 use Exception;
 use Nette\Utils\Json;
 use App\Models\Service;
@@ -40,6 +41,16 @@ class PublicController extends Controller
         return view('pages.fe.legality.index');
     }
 
+    public function boardOfDirectors()
+    {
+        return view('pages.fe.professionals.board');
+    }
+
+    public function management()
+    {
+        return view('pages.fe.professionals.management');
+    }
+
     public function getdata():JsonResponse
     {
         // Return all masterhead records (ordered newest first) so frontend can use them for a slider
@@ -51,6 +62,19 @@ class PublicController extends Controller
         $about = About::select('title', 'subtitle','image')->get();
         $client = Client::select('title', 'image')->get();
         $statistics = Statistic::select('label', 'value', 'icon')->orderBy('order')->get();
+        
+        // Get professionals grouped by category
+        $professionals = [
+            'board_of_director' => Professional::where('category', 'board_of_director')
+                ->select('name', 'position', 'photo', 'details')
+                ->orderBy('order')
+                ->get(),
+            'management' => Professional::where('category', 'management')
+                ->select('name', 'position', 'photo', 'details')
+                ->orderBy('order')
+                ->get(),
+        ];
+        
         $data = [
             'master_head' => $masterhead,
             'service' => $service,
@@ -60,6 +84,7 @@ class PublicController extends Controller
             'about' => $about,
             'client' => $client,
             'statistics' => $statistics,
+            'professionals' => $professionals,
         ];
         return response()->json($data);
     }

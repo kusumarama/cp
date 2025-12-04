@@ -8,6 +8,15 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {{ request()->is('board-of-directors') || request()->is('management') ? 'active' : '' }}" href="#" id="professionalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Professionals
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="professionalDropdown">
+                                <li><a class="dropdown-item" href="{{ route('board.index') }}">Board of Directors</a></li>
+                                <li><a class="dropdown-item" href="{{ route('management.index') }}">Management</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item"><a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio.index') }}">Portofolio</a></li>
                         <li class="nav-item"><a class="nav-link {{ request()->is('design') ? 'active' : '' }}" href="{{ route('design.index') }}">Design</a></li>
                         <li class="nav-item"><a class="nav-link {{ request()->is('legality') ? 'active' : '' }}" href="{{ route('legality.index') }}">Legality</a></li>
