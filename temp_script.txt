@@ -1,0 +1,21 @@
+﻿@section('script')
+<script>
+    $(document).ready(function() {
+        // Hide loader
+        $('.loader-overlay').css('display', 'none');
+        
+        // Modal handler
+        $('.prof-card').on('click', function() {
+            const name = $(this).data('name');
+            const position = $(this).data('position');
+            const photo = $(this).data('photo');
+            const details = $(this).data('details');
+            
+            $('#modal-name').text(name);
+            $('#modal-position').text(position);
+            $('#modal-photo').attr('src', photo).attr('alt', name);
+            $('#modal-details').html(details ? '<p>' + details + '</p>' : '<p class="text-muted">No additional information available.</p>');
+        });
+    });
+</script>
+@endsection
