@@ -8,7 +8,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">{{ app()->getLocale() == 'id' ? 'Beranda' : 'Home' }}</a></li>
-                        <li class="nav-item dropdown">
+                        
+                        <!-- Professional dropdown - Desktop -->
+                        <li class="nav-item dropdown d-none d-lg-block">
                             <a class="nav-link dropdown-toggle {{ request()->is('board-of-directors') || request()->is('management') ? 'active' : '' }}" href="#" id="professionalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ app()->getLocale() == 'id' ? 'Profesional Kami' : 'Our Professionals' }}
                             </a>
@@ -16,6 +18,17 @@
                                 <li><a class="dropdown-item" href="{{ route('board.index') }}">{{ app()->getLocale() == 'id' ? 'Dewan Direksi' : 'Board of Directors' }}</a></li>
                                 <li><a class="dropdown-item" href="{{ route('management.index') }}">{{ app()->getLocale() == 'id' ? 'Manajemen' : 'Management' }}</a></li>
                             </ul>
+                        </li>
+                        
+                        <!-- Professional links - Mobile -->
+                        <li class="nav-item d-lg-none">
+                            <span class="nav-link disabled">{{ app()->getLocale() == 'id' ? 'Profesional Kami' : 'Our Professionals' }}</span>
+                        </li>
+                        <li class="nav-item d-lg-none" style="padding-left: 1rem;">
+                            <a class="nav-link {{ request()->is('board-of-directors') ? 'active' : '' }}" href="{{ route('board.index') }}">{{ app()->getLocale() == 'id' ? 'Dewan Direksi' : 'Board of Directors' }}</a>
+                        </li>
+                        <li class="nav-item d-lg-none" style="padding-left: 1rem;">
+                            <a class="nav-link {{ request()->is('management') ? 'active' : '' }}" href="{{ route('management.index') }}">{{ app()->getLocale() == 'id' ? 'Manajemen' : 'Management' }}</a>
                         </li>
                         <li class="nav-item"><a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio.index') }}">{{ app()->getLocale() == 'id' ? 'Portofolio' : 'Portofolio' }}</a></li>
                         <li class="nav-item"><a class="nav-link {{ request()->is('design') ? 'active' : '' }}" href="{{ route('design.index') }}">{{ app()->getLocale() == 'id' ? 'Desain' : 'Design' }}</a></li>
