@@ -58,6 +58,13 @@ class PublicController extends Controller
         
         return view('pages.fe.professionals.management', compact('professionals'));
     }
+    public function switchLanguage($locale)
+    {
+        if (in_array($locale, ['en', 'id'])) {
+            session(['locale' => $locale]);
+        }
+        return redirect()->back();
+    }
 
     public function getdata():JsonResponse
     {

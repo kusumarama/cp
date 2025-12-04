@@ -39,6 +39,7 @@ Route::controller(PublicController::class)->group(function () {
     Route::get('legality', 'legality')->name('legality.index');
     Route::get('board-of-directors', 'board')->name('board.index');
     Route::get('management', 'management')->name('management.index');
+    Route::get('switch-language/{locale}', 'switchLanguage')->name('switch.language');
 });
 Route::controller(AuthController::class)->middleware('guest')->group(function () {
     Route::get('login', 'index')->name('login');
