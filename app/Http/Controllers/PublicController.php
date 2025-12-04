@@ -221,7 +221,7 @@ class PublicController extends Controller
 
         Try{
 
-            $data = Legality::with('images')->select('id','title','subtitle','image','updated_at')->where('slug',$slug)->first();
+            $data = Legality::with('images')->select('id','title','title_id','subtitle','subtitle_id','image','updated_at')->where('slug',$slug)->first();
             if($data){
                 $res=['success'=>1,'data'=>$data];
             }else{
