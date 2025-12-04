@@ -43,7 +43,7 @@ class PublicController extends Controller
 
     public function board()
     {
-        $professionals = Professional::where('category', 'board')
+        $professionals = Professional::where('category', 'board_of_director')
             ->orderBy('order')
             ->get();
         
