@@ -27,14 +27,29 @@
                     @csrf
                     @method('PUT')
                     
-                    <div class="form-group">
-                        <label for="label">Label <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control @error('label') is-invalid @enderror" 
-                               id="label" name="label" value="{{ old('label', $statistic->label) }}" 
-                               placeholder="e.g., Designs Completed" required>
-                        @error('label')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="label">Label (English) <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control @error('label') is-invalid @enderror" 
+                                       id="label" name="label" value="{{ old('label', $statistic->label) }}" 
+                                       placeholder="e.g., Designs Completed" required>
+                                @error('label')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="label_id">Label (Bahasa Indonesia) <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control @error('label_id') is-invalid @enderror" 
+                                       id="label_id" name="label_id" value="{{ old('label_id', $statistic->label_id) }}" 
+                                       placeholder="e.g., Desain Selesai" required>
+                                @error('label_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

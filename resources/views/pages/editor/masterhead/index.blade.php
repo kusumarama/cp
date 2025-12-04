@@ -36,8 +36,10 @@
                 <table class="table table-bordered" id="Tmh" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Subtitle</th>
+                            <th>Title (EN)</th>
+                            <th>Title (ID)</th>
+                            <th>Subtitle (EN)</th>
+                            <th>Subtitle (ID)</th>
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -64,14 +66,26 @@
                     <div class="form-grop row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="">Title</label>
+                                <label for="">Title (English)</label>
                                 <input type="text" id="title" name="title" class="form-control">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="">Subtitle</label>
-                                <input type="text" id="subtitle" name="subtitle" class="form-control">
+                                <label for="">Title (Bahasa Indonesia)</label>
+                                <input type="text" id="title_id" name="title_id" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Subtitle (English)</label>
+                                <textarea id="subtitle" name="subtitle" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Subtitle (Bahasa Indonesia)</label>
+                                <textarea id="subtitle_id" name="subtitle_id" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -104,15 +118,27 @@
                     <div class="form-grop row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="">Title</label>
+                                <label for="">Title (English)</label>
                                 <input type="hidden" id="id_update" name="id" class="form-control">
                                 <input type="text" id="title_update" name="title" class="form-control">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="">Subtitle</label>
-                                <input type="text" id="subtitle_update" name="subtitle" class="form-control">
+                                <label for="">Title (Bahasa Indonesia)</label>
+                                <input type="text" id="title_id_update" name="title_id" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Subtitle (English)</label>
+                                <textarea id="subtitle_update" name="subtitle" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Subtitle (Bahasa Indonesia)</label>
+                                <textarea id="subtitle_id_update" name="subtitle_id" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
@@ -174,7 +200,9 @@
             },
             "columns":[
                 {"data": "title","orderable":false},
+                {"data": "title_id","orderable":false},
                 {"data": "subtitle","orderable":false},
+                {"data": "subtitle_id","orderable":false},
                 {
                     "data": "image","orderable":false,render:function(data,type,row){
                         let img_path = row.image;
@@ -258,13 +286,17 @@
                     if(data.success == 1){
                         let id = data.data.id;
                         let title = data.data.title;
+                        let title_id = data.data.title_id;
                         let subtitle = data.data.subtitle;
+                        let subtitle_id = data.data.subtitle_id;
                         let image = data.data.image;
                         $("#updateForm #imagev_update").empty().append('<img id="img" class="img-fluid" src="#">');
                         $('#img').attr('src', "{{ asset('storage') }}/"+image).height(200);
                         $("#id_update").val(id);
                         $("#title_update").val(title);
+                        $("#title_id_update").val(title_id);
                         $("#subtitle_update").val(subtitle);
+                        $("#subtitle_id_update").val(subtitle_id);
                         $('#file_update').val(null);
                         
                     } else{

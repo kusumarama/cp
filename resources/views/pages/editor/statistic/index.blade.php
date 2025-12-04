@@ -40,7 +40,8 @@
                     <thead>
                         <tr>
                             <th>Order</th>
-                            <th>Label</th>
+                            <th>Label (EN)</th>
+                            <th>Label (ID)</th>
                             <th>Value</th>
                             <th>Icon</th>
                             <th>Action</th>
@@ -51,6 +52,7 @@
                         <tr>
                             <td>{{ $stat->order }}</td>
                             <td>{{ $stat->label }}</td>
+                            <td>{{ $stat->label_id }}</td>
                             <td>{{ $stat->value }}</td>
                             <td>
                                 @if($stat->icon)
@@ -74,7 +76,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="5" class="text-center">No statistics found</td>
+                            <td colspan="6" class="text-center">No statistics found</td>
                         </tr>
                         @endforelse
                     </tbody>

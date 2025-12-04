@@ -40,7 +40,8 @@
                                 <th>Order</th>
                                 <th>Photo</th>
                                 <th>Name</th>
-                                <th>Position</th>
+                                <th>Position (EN)</th>
+                                <th>Position (ID)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -53,6 +54,7 @@
                                 </td>
                                 <td>{{ $prof->name }}</td>
                                 <td>{{ $prof->position }}</td>
+                                <td>{{ $prof->position_id }}</td>
                                 <td>
                                     <a href="{{ route('editor.professional.edit', $prof->id) }}" class="btn btn-sm btn-warning">
                                         <i class="fas fa-edit"></i> Edit
@@ -68,7 +70,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="text-center">No board members found</td>
+                                <td colspan="6" class="text-center">No board members found</td>
                             </tr>
                             @endforelse
                         </tbody>
@@ -90,7 +92,8 @@
                                 <th>Order</th>
                                 <th>Photo</th>
                                 <th>Name</th>
-                                <th>Position</th>
+                                <th>Position (EN)</th>
+                                <th>Position (ID)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -103,6 +106,7 @@
                                 </td>
                                 <td>{{ $prof->name }}</td>
                                 <td>{{ $prof->position }}</td>
+                                <td>{{ $prof->position_id }}</td>
                                 <td>
                                     <a href="{{ route('editor.professional.edit', $prof->id) }}" class="btn btn-sm btn-warning">
                                         <i class="fas fa-edit"></i> Edit
@@ -118,7 +122,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="text-center">No management found</td>
+                                <td colspan="6" class="text-center">No management found</td>
                             </tr>
                             @endforelse
                         </tbody>

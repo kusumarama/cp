@@ -144,7 +144,7 @@
         <section class="page-section bg-white" id="about-legality">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="section-heading text-uppercase" style="color: #2d5a3d; font-weight: 700; letter-spacing: 1px;">Company Legality</h2>
+                    <h2 class="section-heading text-uppercase" style="color: #2d5a3d; font-weight: 700; letter-spacing: 1px;">{{ app()->getLocale() == 'id' ? 'Legalitas Perusahaan' : 'Company Legality' }}</h2>
                     <div class="divider-custom" style="margin: 1.5rem auto;">
                         <div style="width: 80px; height: 4px; background: #2d5a3d; margin: 0 auto;"></div>
                     </div>
@@ -167,13 +167,13 @@
                                                 <i class="fas fa-certificate" style="color: #2d5a3d; font-size: 1.5rem;"></i>
                                             </div>
                                         </div>
-                                        <h5 class="card-title text-center mb-3" style="color: #2d5a3d; font-weight: 700; font-size: 1.1rem; line-height: 1.3;">Risk-Based Business<br>Licensing (SS)</h5>
+                                        <h5 class="card-title text-center mb-3" style="color: #2d5a3d; font-weight: 700; font-size: 1.1rem; line-height: 1.3;">{{ app()->getLocale() == 'id' ? 'Perizinan Berusaha Berbasis Risiko (SS)' : 'Risk-Based Business<br>Licensing (SS)' }}</h5>
                                         <ul class="list-unstyled mb-0" style="font-size: 0.85rem; color: #555;">
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41011 Construction of Residential Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41012 Construction of Office Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41014 Construction of Shopping Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41016 Construction of Educational Buildings</span></li>
-                                            <li class="mb-0 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41017 Construction of Lodging Buildings</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41011 Konstruksi Bangunan Gedung Tempat Tinggal/Hunian' : '41011 Construction of Residential Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41012 Konstruksi Bangunan Gedung Perkantoran' : '41012 Construction of Office Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41014 Konstruksi Bangunan Gedung Perbelanjaan' : '41014 Construction of Shopping Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41016 Konstruksi Bangunan Gedung Pendidikan' : '41016 Construction of Educational Buildings' }}</span></li>
+                                            <li class="mb-0 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41017 Konstruksi Bangunan Gedung Penginapan' : '41017 Construction of Lodging Buildings' }}</span></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -188,21 +188,21 @@
                                                 <i class="fas fa-award" style="color: #2d5a3d; font-size: 1.5rem;"></i>
                                             </div>
                                         </div>
-                                        <h5 class="card-title text-center mb-3" style="color: #2d5a3d; font-weight: 700; font-size: 1.1rem; line-height: 1.3;">Construction Service Business Entity Certificate (SBUJK)</h5>
+                                        <h5 class="card-title text-center mb-3" style="color: #2d5a3d; font-weight: 700; font-size: 1.1rem; line-height: 1.3;">{{ app()->getLocale() == 'id' ? 'Sertifikat Badan Usaha Jasa Konstruksi (SBUJK)' : 'Construction Service Business Entity Certificate (SBUJK)' }}</h5>
                                         <ul class="list-unstyled mb-0" style="font-size: 0.85rem; color: #555; max-height: 280px; overflow-y: auto;">
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41011 Construction of Residential Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41012 Construction of Office Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41013 Construction of Industrial Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41014 Construction of Shopping Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41015 Construction of Health Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41016 Construction of Educational Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41017 Construction of Lodging Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41018 Construction of Entertainment and Sports Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>41019 Construction of Other Buildings</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>42101 Construction of Civil Roadworks</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>46631 Wholesale of Metal Goods for Construction Materials</span></li>
-                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>46638 Wholesale of Various Kinds of Building Materials</span></li>
-                                            <li class="mb-0 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>46639 Wholesale of Other Construction Materials</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41011 Konstruksi Bangunan Gedung Tempat Tinggal/Hunian' : '41011 Construction of Residential Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41012 Konstruksi Bangunan Gedung Perkantoran' : '41012 Construction of Office Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41013 Konstruksi Bangunan Gedung Industri' : '41013 Construction of Industrial Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41014 Konstruksi Bangunan Gedung Perbelanjaan' : '41014 Construction of Shopping Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41015 Konstruksi Bangunan Gedung Kesehatan' : '41015 Construction of Health Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41016 Konstruksi Bangunan Gedung Pendidikan' : '41016 Construction of Educational Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41017 Konstruksi Bangunan Gedung Penginapan' : '41017 Construction of Lodging Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41018 Konstruksi Bangunan Gedung Hiburan dan Olah Raga' : '41018 Construction of Entertainment and Sports Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '41019 Konstruksi Bangunan Gedung Lainnya' : '41019 Construction of Other Buildings' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '42101 Konstruksi Bangunan Sipil untuk Jalan' : '42101 Construction of Civil Roadworks' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '46631 Perdagangan Besar Barang Logam untuk Bahan Konstruksi' : '46631 Wholesale of Metal Goods for Construction Materials' }}</span></li>
+                                            <li class="mb-2 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '46638 Perdagangan Besar Berbagai Macam Bahan Bangunan' : '46638 Wholesale of Various Kinds of Building Materials' }}</span></li>
+                                            <li class="mb-0 d-flex"><span class="me-2" style="color: #2d5a3d;">•</span><span>{{ app()->getLocale() == 'id' ? '46639 Perdagangan Besar Bahan Bangunan Lainnya' : '46639 Wholesale of Other Construction Materials' }}</span></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@
                                                 <i class="fas fa-file-contract" style="color: #2d5a3d; font-size: 1.5rem;"></i>
                                             </div>
                                         </div>
-                                        <h5 class="card-title mb-3" style="color: #2d5a3d; font-weight: 700; font-size: 1.1rem;">ARTICLE OF<br>INCORPORATION</h5>
+                                        <h5 class="card-title mb-3" style="color: #2d5a3d; font-weight: 700; font-size: 1.1rem;">{{ app()->getLocale() == 'id' ? 'AKTA PENDIRIAN' : 'ARTICLE OF<br>INCORPORATION' }}</h5>
                                         <div class="p-3 rounded" style="background: rgba(45,90,61,0.05); border: 2px solid #2d5a3d;">
                                             <p class="mb-0 fw-bold" style="font-size: 1rem; color: #2d5a3d; letter-spacing: 0.5px;">AHU-0050193.ah.01.01.tahun 2023</p>
                                         </div>
@@ -234,7 +234,7 @@
                                                 <i class="fas fa-id-card" style="color: #2d5a3d; font-size: 1.5rem;"></i>
                                             </div>
                                         </div>
-                                        <h5 class="card-title mb-3" style="color: #2d5a3d; font-weight: 700; font-size: 1.1rem;">Business Identification<br>Number (NIB)</h5>
+                                        <h5 class="card-title mb-3" style="color: #2d5a3d; font-weight: 700; font-size: 1.1rem;">{{ app()->getLocale() == 'id' ? 'Nomor Induk Berusaha (NIB)' : 'Business Identification<br>Number (NIB)' }}</h5>
                                         <div class="p-3 rounded" style="background: rgba(45,90,61,0.05); border: 2px solid #2d5a3d;">
                                             <p class="mb-0 fw-bold" style="font-size: 1rem; color: #2d5a3d; letter-spacing: 0.5px;">2407230101276 – 24 JULI 2023</p>
                                         </div>
@@ -267,8 +267,8 @@
         <section class="page-section bg-light" id="legality">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="section-heading text-uppercase">Certified Projects</h2>
-                    <h3 class="section-subheading text-muted">View our legally certified and compliant projects</h3>
+                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Lisensi' : 'Certified Projects' }}</h2>
+                    <!-- <h3 class="section-subheading text-muted">{{ app()->getLocale() == 'id' ? 'Lihat proyek kami yang tersertifikasi dan sesuai hukum' : 'View our legally certified and compliant projects' }}</h3> -->
                 </div>
                 <div class="row" id="legality_content">
                 </div>
@@ -279,27 +279,27 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Hubungi Kami' : 'Contact Us' }}</h2>
                 </div>
                 
                 <div class="contact-info-grid">
                     <div class="contact-info-item">
-                        <h4>Address</h4>
+                        <h4>{{ app()->getLocale() == 'id' ? 'Alamat' : 'Address' }}</h4>
                         <p>Citywalk CW 2-11 Citra Gran,Jati Karya<br> Bekasi,<br>Jawa Barat</p>
                     </div>
                     <div class="contact-info-item">
-                        <h4>Contact</h4>
+                        <h4>{{ app()->getLocale() == 'id' ? 'Kontak' : 'Contact' }}</h4>
                         <a href="mailto:alhadidarchives@gmail.com">alhadidarchives@gmail.com</a>
                     </div>
-                    <div class="contact-info-item">
-                        <h4>Our Social Media</h4>
+                    <!-- <div class="contact-info-item">
+                        <h4>{{ app()->getLocale() == 'id' ? 'Media Sosial Kami' : 'Our Social Media' }}</h4>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div>
@@ -317,7 +317,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <div class="modal-body">
-                                    <h2 id="legality_project_name" class="text-uppercase">Title</h2>
+                                    <h2 id="legality_project_name" class="text-uppercase">{{ app()->getLocale() == 'id' ? 'Judul' : 'Title' }}</h2>
                                     <p class="item-intro text-muted"></p>
                                     
                                     <!-- Image Carousel -->
@@ -326,11 +326,11 @@
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#legalityImageCarousel" data-bs-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
+                                            <span class="visually-hidden">{{ app()->getLocale() == 'id' ? 'Sebelumnya' : 'Previous' }}</span>
                                         </button>
                                         <button class="carousel-control-next" type="button" data-bs-target="#legalityImageCarousel" data-bs-slide="next">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
+                                            <span class="visually-hidden">{{ app()->getLocale() == 'id' ? 'Selanjutnya' : 'Next' }}</span>
                                         </button>
                                     </div>
                                     
@@ -349,17 +349,17 @@
                                     <p></p>
                                     <ul class="list-inline">
                                         <li>
-                                            <strong>Subtitle:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Subjudul' : 'Subtitle' }}:</strong>
                                             <span id="legality_location"></span>
                                         </li>
                                         <li>
-                                            <strong>Waktu Update:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Waktu Update' : 'Update Time' }}:</strong>
                                             <span id="legality_updated_at"></span>
                                         </li>
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
-                                        Close Project
+                                        {{ app()->getLocale() == 'id' ? 'Tutup' : 'Close Project' }}
                                     </button>
                                 </div>
                             </div>

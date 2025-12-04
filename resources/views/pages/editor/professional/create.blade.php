@@ -48,25 +48,41 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        <label for="position">Position <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control @error('position') is-invalid @enderror" 
-                               id="position" name="position" value="{{ old('position') }}" 
-                               placeholder="e.g., President Commissioner" required list="position-suggestions">
-                        <datalist id="position-suggestions">
-                            <option value="President Commissioner">
-                            <option value="Commissioner">
-                            <option value="President Director">
-                            <option value="Director">
-                            <option value="General Manager">
-                            <option value="Manager">
-                            <option value="Supervisor">
-                            <option value="Staff">
-                        </datalist>
-                        @error('position')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <small class="form-text text-muted">Enter position title. You can select from suggestions or type a custom one.</small>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="position">Position (English) <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control @error('position') is-invalid @enderror" 
+                                       id="position" name="position" value="{{ old('position') }}" 
+                                       placeholder="e.g., President Commissioner" required list="position-suggestions">
+                                <datalist id="position-suggestions">
+                                    <option value="President Commissioner">
+                                    <option value="Commissioner">
+                                    <option value="President Director">
+                                    <option value="Director">
+                                    <option value="General Manager">
+                                    <option value="Manager">
+                                    <option value="Supervisor">
+                                    <option value="Staff">
+                                </datalist>
+                                @error('position')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <small class="form-text text-muted">Enter position title in English</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="position_id">Position (Bahasa Indonesia) <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control @error('position_id') is-invalid @enderror" 
+                                       id="position_id" name="position_id" value="{{ old('position_id') }}" 
+                                       placeholder="e.g., Komisaris Utama" required>
+                                @error('position_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <small class="form-text text-muted">Masukkan jabatan dalam Bahasa Indonesia</small>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

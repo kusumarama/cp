@@ -40,12 +40,13 @@ class StatisticController extends Controller
     {
         $request->validate([
             'label' => 'required|string|max:255',
+            'label_id' => 'required|string|max:255',
             'value' => 'required|integer',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'order' => 'nullable|integer'
         ]);
 
-        $data = $request->only(['label', 'value', 'order']);
+        $data = $request->only(['label', 'label_id', 'value', 'order']);
         
         if ($request->hasFile('icon')) {
             $data['icon'] = $this->fileUploadService->uploadFile($request->file('icon'), 'img/statistics');
@@ -72,13 +73,14 @@ class StatisticController extends Controller
     {
         $request->validate([
             'label' => 'required|string|max:255',
+            'label_id' => 'required|string|max:255',
             'value' => 'required|integer',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             'order' => 'nullable|integer'
         ]);
 
         $statistic = Statistic::findOrFail($id);
-        $data = $request->only(['label', 'value', 'order']);
+        $data = $request->only(['label', 'label_id', 'value', 'order']);
         
         if ($request->hasFile('icon')) {
             // Delete old icon if exists

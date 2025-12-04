@@ -68,7 +68,8 @@
         object-fit: contain;
         margin: 0 auto 2rem;
         display: block;
-        border: 5px solid #46584d;`r`n        background: #f8f9fa;
+        border: 5px solid #46584d;
+        background: #f8f9fa;
     }
     .modal-title {
         color: #2d3a32;
@@ -91,12 +92,27 @@
             height: 250px;
         }
     }
+        /* Contact section */
+    #contact{background:#46584d}
+    .contact-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-bottom:3rem;text-align:left}
+    .contact-info-item h4{color:#fff;font-weight:600;margin-bottom:1rem;font-size:1.5rem}
+    .contact-info-item p,.contact-info-item a{color:#fff;line-height:1.8;margin:0.25rem 0}
+    .contact-info-item a{text-decoration:none}
+    .contact-info-item a:hover{color:#173f2e}
+    .social-icons{display:flex;gap:1rem;margin-top:0.5rem}
+    .social-icons a{width:40px;height:40px;border-radius:50%;background:#173f2e;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .3s}
+    .social-icons a:hover{background:#46584d}
+    .contact-map{width:100%;height:350px;border:0;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+    @media (max-width:991px){
+        .contact-info-grid{grid-template-columns:1fr;gap:2rem;text-align:center}
+        .social-icons{justify-content:center}
+    }
 </style>
 
 <div class="professionals-header">
     <div class="container">
-        <h1>Management</h1>
-        <p class="lead">Our dedicated team driving operational excellence</p>
+        <h1>{{ app()->getLocale() == 'id' ? 'Manajemen' : 'Management' }}</h1>
+        <p class="lead">{{ app()->getLocale() == 'id' ? 'Tim dedikasi kami yang mendorong keunggulan operasional' : 'Our dedicated team driving operational excellence' }}</p>
     </div>
 </div>
 
@@ -104,21 +120,57 @@
     <div class="container">
         <div class="prof-grid">
             @foreach($professionals as $professional)
+            @php
+                $position = $locale === 'id' ? ($professional->position_id ?? $professional->position) : $professional->position;
+            @endphp
             <div class="prof-card" data-bs-toggle="modal" data-bs-target="#professionalModal" 
                  data-name="{{ $professional->name }}" 
-                 data-position="{{ $professional->position }}" 
+                 data-position="{{ $position }}" 
                  data-photo="{{ asset('storage/' . $professional->photo) }}" 
                  data-details="{{ $professional->details }}">
                 <img src="{{ asset('storage/' . $professional->photo) }}" alt="{{ $professional->name }}" class="prof-photo">
                 <div class="prof-info">
                     <div class="prof-name">{{ $professional->name }}</div>
-                    <div class="prof-position">{{ $professional->position }}</div>
+                    <div class="prof-position">{{ $position }}</div>
                 </div>
             </div>
             @endforeach
         </div>
     </div>
 </section>
+
+<!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Hubungi Kami' : 'Contact Us' }}</h2>
+                </div>
+                
+                <div class="contact-info-grid">
+                    <div class="contact-info-item">
+                        <h4>{{ app()->getLocale() == 'id' ? 'Alamat' : 'Address' }}</h4>
+                        <p>Citywalk CW 2-11 Citra Gran,Jati Karya<br> Bekasi,<br>Jawa Barat</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h4>{{ app()->getLocale() == 'id' ? 'Kontak' : 'Contact' }}</h4>
+                        <a href="mailto:alhadidarchives@gmail.com">alhadidarchives@gmail.com</a>
+                    </div>
+                    <!-- <div class="contact-info-item">
+                        <h4>{{ app()->getLocale() == 'id' ? 'Media Sosial Kami' : 'Our Social Media' }}</h4>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div>
+                    <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.081776276195!2d106.92157657591565!3d-6.383446462440702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699561ec45b8db%3A0x4c452380bef1ad9f!2sPT.%20Harkat%20Digdaya%20Konstruksi%20(PT.%20HDK)!5e0!3m2!1sid!2sid!4v1763543039776!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+            </div>
+        </section>
 
 <!-- Modal -->
 <div class="modal fade" id="professionalModal" tabindex="-1" aria-labelledby="professionalModalLabel" aria-hidden="true">

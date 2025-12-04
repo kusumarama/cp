@@ -251,17 +251,26 @@
         <section class="page-section" id="vision-mission">
             <div class="vm-split">
                 <div class="vm-panel vm-vision">
-                    <h2>Vision</h2>
-                    <p class="vision-text">To Become an Excellent and Sustainable Company</p>
+                    <h2>{{ app()->getLocale() == 'id' ? 'Visi' : 'Vision' }}</h2>
+                    <p class="vision-text">{{ app()->getLocale() == 'id' ? 'Menjadi Perusahaan yang Unggul dan Berkelanjutan' : 'To Become an Excellent and Sustainable Company' }}</p>
                 </div>
                 <div class="vm-panel vm-mission">
-                    <h2>Mision</h2>
+                    <h2>{{ app()->getLocale() == 'id' ? 'Misi' : 'Mission' }}</h2>
+                    @if(app()->getLocale() == 'id')
+                    <ul>
+                        <li>Menyediakan layanan konstruksi dan perdagangan berdasarkan Tata Kelola Perusahaan yang Baik, manajemen QHSE, dan konsep ramah lingkungan</li>
+                        <li>Menjaga pertumbuhan berkelanjutan dengan mengoptimalkan inovasi Teknologi Informasi (TI), sumber daya unggul</li>
+                        <li>Menyediakan layanan pengembangan kawasan terpadu untuk kehidupan yang lebih ramah lingkungan</li>
+                        <li>Menjaga hubungan harmonis dengan semua pemangku kepentingan</li>
+                    </ul>
+                    @else
                     <ul>
                         <li>To provide construction and trading services based on Good Corporate Governance, QHSE management, and an environmentally friendly concept</li>
                         <li>To maintain sustainable growth by optimizing Information Technology (IT) innovation, superior resources</li>
                         <li>To provide integrated area development services for a more environmentally friendly living</li>
                         <li>To maintain harmonious relationships with all stakeholders</li>
                     </ul>
+                    @endif
                 </div>
             </div>
         </section>
@@ -269,7 +278,7 @@
         <!-- Values -->
         <section class="page-section values-section" id="values">
             <div class="container text-center">
-                <h2 class="section-heading text-uppercase">OUR VALUES</h2>
+                <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'NILAI-NILAI KAMI' : 'OUR VALUES' }}</h2>
             </div>
             <div class="values-grid">
                 <div class="value-card">
@@ -303,8 +312,8 @@
         <section class="page-section" id="service" style="background:#46584d;color:#fff">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading ">Providing Everything You Need</h3>
+                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Layanan' : 'Services' }}</h2>
+                    <h3 class="section-subheading ">{{ app()->getLocale() == 'id' ? 'Menyediakan Segala Yang Anda Butuhkan' : 'Providing Everything You Need' }}</h3>
                 </div>
                 <div class="row text-center" id="service_content">
                     <div class="col-md-4">
@@ -321,7 +330,7 @@
         <!-- Clients (slider) -->
         <section class="page-section bg-light" id="clients">
             <div class="container text-center">
-                <h2 class="section-heading text-uppercase">OUR CLIENTS</h2>
+                <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'KLIEN KAMI' : 'OUR CLIENTS' }}</h2>
                 <div class="clients-wrap mt-4">
                     <button class="" id="clients-prev" aria-label="Previous clients">‹</button>
                     <div class="clients-slider">
@@ -337,27 +346,27 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Hubungi Kami' : 'Contact Us' }}</h2>
                 </div>
                 
                 <div class="contact-info-grid">
                     <div class="contact-info-item">
-                        <h4>Address</h4>
+                        <h4>{{ app()->getLocale() == 'id' ? 'Alamat' : 'Address' }}</h4>
                         <p>Citywalk CW 2-11 Citra Gran,Jati Karya<br> Bekasi,<br>Jawa Barat</p>
                     </div>
                     <div class="contact-info-item">
-                        <h4>Contact</h4>
+                        <h4>{{ app()->getLocale() == 'id' ? 'Kontak' : 'Contact' }}</h4>
                         <a href="mailto:alhadidarchives@gmail.com">alhadidarchives@gmail.com</a>
                     </div>
-                    <div class="contact-info-item">
-                        <h4>Our Social Media</h4>
+                    <!-- <div class="contact-info-item">
+                        <h4>{{ app()->getLocale() == 'id' ? 'Media Sosial Kami' : 'Our Social Media' }}</h4>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div>
@@ -377,51 +386,51 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 id="portofolio_project_name" class="text-uppercase">Project Name</h2>
+                                    <h2 id="portofolio_project_name" class="text-uppercase">{{ app()->getLocale() == 'id' ? 'Nama Proyek' : 'Project Name' }}</h2>
                                     <p class="item-intro text-muted"></p>
                                     <img id="portofolio_img" class="img-fluid d-block mx-auto" src="{{ asset ('template_fe/assets/img/portfolio/1.jpg')}}" alt="..." />
                                     <p></p>
                                     <ul class="list-inline">
                                         <li>
-                                            <strong>Status:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Status' : 'Status' }}:</strong>
                                             <span id="portofolio_status"></span>
                                         </li>
                                         <li>
-                                            <strong>Location:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Lokasi' : 'Location' }}:</strong>
                                             <span id="portofolio_location"></span>
                                         </li>
                                         <li>
-                                            <strong>Owner:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Pemilik' : 'Owner' }}:</strong>
                                             <span id="portofolio_owner_project"></span>
                                         </li>
                                         <li>
-                                            <strong>Alamat:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Alamat' : 'Address' }}:</strong>
                                             <span id="portofolio_alamat"></span>
                                         </li>
                                         <li>
-                                            <strong>Nilai Kontrak:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Nilai Kontrak' : 'Contract Value' }}:</strong>
                                             <span id="portofolio_nilai_kontrak"></span>
                                         </li>
                                         <li>
-                                            <strong>Jenis Bangunan:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Jenis Bangunan' : 'Building Type' }}:</strong>
                                             <span id="portofolio_jenis_bangunan"></span>
                                         </li>
                                         <li>
-                                            <strong>Waktu Mulai:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Waktu Mulai' : 'Start Time' }}:</strong>
                                             <span id="portofolio_waktu"></span>
                                         </li>
                                         <li>
-                                            <strong>Status Update:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Status Update' : 'Status Update' }}:</strong>
                                             <span id="portofolio_status_update"></span>
                                         </li>
                                         <li>
-                                            <strong>Waktu Update:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Waktu Update' : 'Update Time' }}:</strong>
                                             <span id="portofolio_updated_at"></span>
                                         </li>
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
-                                        Close Project
+                                        {{ app()->getLocale() == 'id' ? 'Tutup Proyek' : 'Close Project' }}
                                     </button>
                                 </div>
                             </div>

@@ -54,7 +54,9 @@ class LegalityController extends Controller
         try {
             $rules = [
                 'title' => 'required|string|max:255|unique:legality,title',
+                'title_id' => 'required|string|max:255',
                 'subtitle' => 'required|string|max:255',
+                'subtitle_id' => 'required|string|max:255',
                 'images.*' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ];
             $massages = [
@@ -130,7 +132,9 @@ class LegalityController extends Controller
         try {
             $rules = [
                 'title' => 'required|string|max:255|unique:legality,title,'.$id,
+                'title_id' => 'required|string|max:255',
                 'subtitle' => 'required|string|max:255',
+                'subtitle_id' => 'required|string|max:255',
             ];
             $massages = [
                 'title.unique' => 'Title already taken',

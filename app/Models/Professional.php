@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Professional extends Model
 {
-    protected $fillable = ['name', 'position', 'category', 'details', 'photo', 'order'];
+    protected $fillable = ['name', 'position', 'position_id', 'category', 'details', 'photo', 'order'];
     
     const CATEGORY_BOARD = 'board_of_director';
     const CATEGORY_MANAGEMENT = 'management';

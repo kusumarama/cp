@@ -57,7 +57,9 @@ class AboutController extends Controller
         try {
             $rules = [
                 'title' => 'required|string|max:255|unique:about,title',
+                'title_id' => 'required|string|max:255',
                 'subtitle' => 'required|string',
+                'subtitle_id' => 'required|string',
                 'file' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ];
             $massages = [
@@ -122,7 +124,9 @@ class AboutController extends Controller
             }
             $rules = [
                 'title' => 'required|string|max:255',
+                'title_id' => 'required|string|max:255',
                 'subtitle' => 'required|string',
+                'subtitle_id' => 'required|string',
                 'file' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             ];
             $massages = [

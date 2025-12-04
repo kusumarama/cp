@@ -41,13 +41,14 @@ class ProfessionalController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'position' => 'required|string|max:255',
+            'position_id' => 'required|string|max:255',
             'category' => 'required|in:board_of_director,management',
             'details' => 'nullable|string',
             'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'order' => 'nullable|integer'
         ]);
 
-        $data = $request->only(['name', 'position', 'category', 'details', 'order']);
+        $data = $request->only(['name', 'position', 'position_id', 'category', 'details', 'order']);
         
         if ($request->hasFile('photo')) {
             $data['photo'] = $this->fileUploadService->uploadFile($request->file('photo'), 'img/professionals');
@@ -75,6 +76,7 @@ class ProfessionalController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'position' => 'required|string|max:255',
+            'position_id' => 'required|string|max:255',
             'category' => 'required|in:board_of_director,management',
             'details' => 'nullable|string',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
@@ -82,7 +84,7 @@ class ProfessionalController extends Controller
         ]);
 
         $professional = Professional::findOrFail($id);
-        $data = $request->only(['name', 'position', 'category', 'details', 'order']);
+        $data = $request->only(['name', 'position', 'position_id', 'category', 'details', 'order']);
         
         if ($request->hasFile('photo')) {
             if ($professional->photo) {

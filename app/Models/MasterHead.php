@@ -11,4 +11,5 @@ class MasterHead extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'master_head';
     protected $guarded = ['id'];
+    protected $fillable = ['title', 'title_id', 'subtitle', 'subtitle_id', 'image'];
 }

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Statistic extends Model
 {
-    protected $fillable = ['label', 'value', 'icon', 'order'];
+    protected $fillable = ['label', 'label_id', 'value', 'icon', 'order'];
 }

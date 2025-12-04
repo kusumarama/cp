@@ -57,7 +57,9 @@ class MasterHeadController extends Controller
         try {
             $rules = [
                 'title' => 'required|string|max:255|unique:master_head,title',
+                'title_id' => 'required|string|max:255',
                 'subtitle' => 'required|string|max:255',
+                'subtitle_id' => 'required|string',
                 'file' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ];
             $massages = [
@@ -121,8 +123,9 @@ class MasterHeadController extends Controller
                 $request->merge(['file' => null]);
             }
             $rules = [
-                'title' => 'required|string|max:255',
+                'title' => 'required|string|max:255',                'title_id' => 'required|string|max:255',
                 'subtitle' => 'required|string|max:255',
+                'subtitle_id' => 'required|string|max:255',
                 'file' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             ];
             $massages = [

@@ -47,7 +47,9 @@ class PublicController extends Controller
             ->orderBy('order')
             ->get();
         
-        return view('pages.fe.professionals.board', compact('professionals'));
+        $locale = app()->getLocale();
+        
+        return view('pages.fe.professionals.board', compact('professionals', 'locale'));
     }
 
     public function management()
@@ -56,7 +58,9 @@ class PublicController extends Controller
             ->orderBy('order')
             ->get();
         
-        return view('pages.fe.professionals.management', compact('professionals'));
+        $locale = app()->getLocale();
+        
+        return view('pages.fe.professionals.management', compact('professionals', 'locale'));
     }
     public function switchLanguage($locale)
     {
@@ -68,26 +72,82 @@ class PublicController extends Controller
 
     public function getdata():JsonResponse
     {
+        $locale = app()->getLocale();
+        $isIndonesian = $locale === 'id';
+        
         // Return all masterhead records (ordered newest first) so frontend can use them for a slider
-        $masterhead = MasterHead::select('title', 'subtitle','image')->latest()->get();
-        $service = Service::select('title', 'subtitle','image')->get();
+        $masterhead = MasterHead::latest()->get()->map(function($item) use ($isIndonesian) {
+            return [
+                'title' => $isIndonesian ? $item->title_id : $item->title,
+                'subtitle' => $isIndonesian ? $item->subtitle_id : $item->subtitle,
+                'image' => $item->image
+            ];
+        });
+        
+        $service = Service::all()->map(function($item) use ($isIndonesian) {
+            return [
+                'title' => $isIndonesian ? $item->title_id : $item->title,
+                'subtitle' => $isIndonesian ? $item->subtitle_id : $item->subtitle,
+                'image' => $item->image
+            ];
+        });
+        
         $portofolio = Portofolio::with('images')->select('id','project_name', 'status','location','image','slug')->get();
         $design = Design::with('images')->select('id','project_name','location','image','slug')->get();
-        $legality = Legality::with('images')->select('id','title','subtitle','image','slug')->get();
-        $about = About::select('title', 'subtitle','image')->get();
+        
+        $legality = Legality::with('images')->get()->map(function($item) use ($isIndonesian) {
+            return [
+                'id' => $item->id,
+                'title' => $isIndonesian ? $item->title_id : $item->title,
+                'subtitle' => $isIndonesian ? $item->subtitle_id : $item->subtitle,
+                'image' => $item->image,
+                'slug' => $item->slug,
+                'images' => $item->images
+            ];
+        });
+        
+        $about = About::all()->map(function($item) use ($isIndonesian) {
+            return [
+                'title' => $isIndonesian ? $item->title_id : $item->title,
+                'subtitle' => $isIndonesian ? $item->subtitle_id : $item->subtitle,
+                'image' => $item->image
+            ];
+        });
+        
         $client = Client::select('title', 'image')->get();
-        $statistics = Statistic::select('label', 'value', 'icon')->orderBy('order')->get();
+        
+        $statistics = Statistic::orderBy('order')->get()->map(function($item) use ($isIndonesian) {
+            return [
+                'label' => $isIndonesian ? $item->label_id : $item->label,
+                'value' => $item->value,
+                'icon' => $item->icon
+            ];
+        });
         
         // Get professionals grouped by category
         $professionals = [
             'board_of_director' => Professional::where('category', 'board_of_director')
                 ->orderBy('order')
-                ->select('name', 'position', 'photo', 'details')
-                ->get(),
+                ->get()
+                ->map(function($item) use ($isIndonesian) {
+                    return [
+                        'name' => $item->name,
+                        'position' => $isIndonesian ? $item->position_id : $item->position,
+                        'photo' => $item->photo,
+                        'details' => $item->details
+                    ];
+                }),
             'management' => Professional::where('category', 'management')
                 ->orderBy('order')
-                ->select('name', 'position', 'photo', 'details')
-                ->get(),
+                ->get()
+                ->map(function($item) use ($isIndonesian) {
+                    return [
+                        'name' => $item->name,
+                        'position' => $isIndonesian ? $item->position_id : $item->position,
+                        'photo' => $item->photo,
+                        'details' => $item->details
+                    ];
+                }),
         ];
         
         $data = [

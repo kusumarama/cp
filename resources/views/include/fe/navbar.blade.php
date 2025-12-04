@@ -7,19 +7,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">{{ app()->getLocale() == 'id' ? 'Beranda' : 'Home' }}</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle {{ request()->is('board-of-directors') || request()->is('management') ? 'active' : '' }}" href="#" id="professionalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Our Professionals
+                                {{ app()->getLocale() == 'id' ? 'Profesional Kami' : 'Our Professionals' }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="professionalDropdown">
-                                <li><a class="dropdown-item" href="{{ route('board.index') }}">Board of Directors</a></li>
-                                <li><a class="dropdown-item" href="{{ route('management.index') }}">Management</a></li>
+                                <li><a class="dropdown-item" href="{{ route('board.index') }}">{{ app()->getLocale() == 'id' ? 'Dewan Direksi' : 'Board of Directors' }}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('management.index') }}">{{ app()->getLocale() == 'id' ? 'Manajemen' : 'Management' }}</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio.index') }}">Portofolio</a></li>
-                        <li class="nav-item"><a class="nav-link {{ request()->is('design') ? 'active' : '' }}" href="{{ route('design.index') }}">Design</a></li>
-                        <li class="nav-item"><a class="nav-link {{ request()->is('legality') ? 'active' : '' }}" href="{{ route('legality.index') }}">Legality</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->is('portfolio') ? 'active' : '' }}" href="{{ route('portfolio.index') }}">{{ app()->getLocale() == 'id' ? 'Portofolio' : 'Portofolio' }}</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->is('design') ? 'active' : '' }}" href="{{ route('design.index') }}">{{ app()->getLocale() == 'id' ? 'Desain' : 'Design' }}</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->is('legality') ? 'active' : '' }}" href="{{ route('legality.index') }}">{{ app()->getLocale() == 'id' ? 'Legalitas' : 'Legality' }}</a></li>
                         <!-- <li class="nav-item"><a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="{{ url('/#about') }}">About</a></li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

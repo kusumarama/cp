@@ -11,6 +11,7 @@ class Legality extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'legality';
     protected $guarded = ['id'];
+    protected $fillable = ['title', 'title_id', 'subtitle', 'subtitle_id', 'image', 'slug'];
 
     public function images()
     {

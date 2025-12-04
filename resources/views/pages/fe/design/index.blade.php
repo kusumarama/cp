@@ -122,8 +122,8 @@
         <section class="page-section bg-light" id="design">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Design</h2>
-                    <h3 class="section-subheading text-muted">Witness our finest works. From conceptualization to completion, we pride ourselves on delivering projects that define new standards in design and construction. Find inspiration and proof of our quality in every detail.</h3>
+                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Desain' : 'Design' }}</h2>
+                    <h3 class="section-subheading text-muted">{{ app()->getLocale() == 'id' ? 'Saksikan karya terbaik kami. Dari konseptualisasi hingga penyelesaian, kami bangga menghadirkan proyek yang menetapkan standar baru dalam desain dan konstruksi. Temukan inspirasi dan bukti kualitas kami di setiap detail.' : 'Witness our finest works. From conceptualization to completion, we pride ourselves on delivering projects that define new standards in design and construction. Find inspiration and proof of our quality in every detail.' }}</h3>
                 </div>
                 <div class="row" id="design_content">
                 </div>
@@ -133,27 +133,27 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center mb-5">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h2 class="section-heading text-uppercase">{{ app()->getLocale() == 'id' ? 'Hubungi Kami' : 'Contact Us' }}</h2>
                 </div>
                 
                 <div class="contact-info-grid">
                     <div class="contact-info-item">
-                        <h4>Address</h4>
+                        <h4>{{ app()->getLocale() == 'id' ? 'Alamat' : 'Address' }}</h4>
                         <p>Citywalk CW 2-11 Citra Gran,Jati Karya<br> Bekasi,<br>Jawa Barat</p>
                     </div>
                     <div class="contact-info-item">
-                        <h4>Contact</h4>
+                        <h4>{{ app()->getLocale() == 'id' ? 'Kontak' : 'Contact' }}</h4>
                         <a href="mailto:alhadidarchives@gmail.com">alhadidarchives@gmail.com</a>
                     </div>
-                    <div class="contact-info-item">
-                        <h4>Our Social Media</h4>
+                    <!-- <div class="contact-info-item">
+                        <h4>{{ app()->getLocale() == 'id' ? 'Media Sosial Kami' : 'Our Social Media' }}</h4>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div>
@@ -173,7 +173,7 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 id="design_project_name" class="text-uppercase">Project Name</h2>
+                                    <h2 id="design_project_name" class="text-uppercase">{{ app()->getLocale() == 'id' ? 'Nama Proyek' : 'Project Name' }}</h2>
                                     <p class="item-intro text-muted"></p>
                                     
                                     <!-- Image Carousel -->
@@ -183,11 +183,11 @@
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#designImageCarousel" data-bs-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
+                                            <span class="visually-hidden">{{ app()->getLocale() == 'id' ? 'Sebelumnya' : 'Previous' }}</span>
                                         </button>
                                         <button class="carousel-control-next" type="button" data-bs-target="#designImageCarousel" data-bs-slide="next">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
+                                            <span class="visually-hidden">{{ app()->getLocale() == 'id' ? 'Selanjutnya' : 'Next' }}</span>
                                         </button>
                                     </div>
                                     
@@ -206,29 +206,29 @@
                                     <p></p>
                                     <ul class="list-inline">
                                         <li>
-                                            <strong>Location:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Lokasi' : 'Location' }}:</strong>
                                             <span id="design_location"></span>
                                         </li>
                                         <li>
-                                            <strong>Owner:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Pemilik' : 'Owner' }}:</strong>
                                             <span id="design_owner_project"></span>
                                         </li>
                                         <li>
-                                            <strong>Jenis Bangunan:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Jenis Bangunan' : 'Building Type' }}:</strong>
                                             <span id="design_jenis_bangunan"></span>
                                         </li>
                                         <li>
-                                            <strong>Waktu Mulai:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Waktu Mulai' : 'Start Time' }}:</strong>
                                             <span id="design_waktu"></span>
                                         </li>
                                         <li>
-                                            <strong>Waktu Update:</strong>
+                                            <strong>{{ app()->getLocale() == 'id' ? 'Waktu Update' : 'Update Time' }}:</strong>
                                             <span id="design_updated_at"></span>
                                         </li>
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
-                                        Close Project
+                                        {{ app()->getLocale() == 'id' ? 'Tutup Proyek' : 'Close Project' }}
                                     </button>
                                 </div>
                             </div>
