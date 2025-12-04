@@ -76,7 +76,8 @@
         object-fit: contain;
         margin: 0 auto 2rem;
         display: block;
-        border: 5px solid #46584d;`r`n        background: #f8f9fa;
+        border: 5px solid #46584d;
+        background: #f8f9fa;
     }
     .modal-title {
         color: #2d3a32;
