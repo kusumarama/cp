@@ -11,4 +11,5 @@ class About extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'about';
     protected $guarded = ['id'];
+    protected $fillable = ['title', 'title_id', 'subtitle', 'subtitle_id', 'image'];
 }
