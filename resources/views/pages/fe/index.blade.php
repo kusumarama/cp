@@ -107,10 +107,10 @@
     /* About split layout (full-width section) */
     #about{padding:0} /* remove default section padding so it becomes full-bleed */
     .about-split{display:flex;flex-wrap:nowrap;align-items:stretch;width:100%;margin:0;min-height:420px}
-    .about-image{flex:0 0 50%;background-size:cover;background-position:center;min-height:520px;}
-    .about-panel{flex:0 0 50%;padding:5rem 4rem;background:#46584d;color:#fff;display:flex;flex-direction:column;justify-content:center}
+    .about-image{flex:0 0 40%;background-size:cover;background-position:center;min-height:520px;}
+    .about-panel{flex:0 0 60%;padding:5rem 4rem;background:#46584d;color:#fff;display:flex;flex-direction:column;justify-content:center}
     .about-panel h2{color:#fff;margin-bottom:1rem}
-    .about-panel p.lead{color:rgba(255,255,255,0.95)}
+    .about-panel p.lead{color:rgba(255,255,255,0.95);text-align:justify}
     @media (max-width:991px){
         .about-split{flex-wrap:wrap;flex-direction:column}
         .about-image,.about-panel{flex:1 1 100%;min-height:320px;padding:2.5rem}
