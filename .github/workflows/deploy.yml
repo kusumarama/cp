@@ -1,3 +1,4 @@
+# Trigger deployment after setting up FTP secrets
 name: Deploy Website to Hostinger
 
 on:
