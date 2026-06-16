@@ -17,6 +17,7 @@ use App\Http\Controllers\editor\MasterHeadController;
 use App\Http\Controllers\editor\PortofolioController;
 use App\Http\Controllers\editor\DesignController;
 use App\Http\Controllers\editor\LegalityController;
+use App\Http\Controllers\editor\IsoCertificationController;
 
 Route::get('/', function () {
     // If user is authenticated, send them to the editor dashboard
@@ -144,6 +145,15 @@ Route::prefix('editor')->middleware('auth')->group(function () {
         Route::get('/professional/{id}/edit', 'edit')->name('editor.professional.edit');
         Route::put('/professional/{id}', 'update')->name('editor.professional.update');
         Route::delete('/professional/{id}', 'destroy')->name('editor.professional.destroy');
+    });
+
+    Route::controller(IsoCertificationController::class)->group(function () {
+        Route::get('/iso-certification', 'index')->name('editor.iso-certification');
+        Route::get('/iso-certification/data', 'getData')->name('editor.iso-certification.data');
+        Route::post('/iso-certification/store', 'storeData')->name('editor.iso-certification.store');
+        Route::get('/iso-certification/detail', 'detail')->name('editor.iso-certification.detail');
+        Route::post('/iso-certification/update', 'updateData')->name('editor.iso-certification.update');
+        Route::delete('/iso-certification/delete', 'deleteData')->name('editor.iso-certification.delete');
     });
 
 });

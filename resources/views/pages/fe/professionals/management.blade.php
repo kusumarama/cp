@@ -2,7 +2,7 @@
 @section('content')
 <style>
     .professionals-header {
-        background: linear-gradient(135deg, #46584d 0%, #2d3a32 100%);
+        background: linear-gradient(135deg, #192639 0%, #0d1929 100%);
         padding: 120px 0 60px;
         color: white;
         text-align: center;
@@ -53,11 +53,11 @@
     .prof-name {
         font-size: 1.1rem;
         font-weight: 700;
-        color: #2d3a32;
+        color: #0d1929;
         margin-bottom: 0.3rem;
     }
     .prof-position {
-        color: #46584d;
+        color: #192639;
         font-size: 0.9rem;
         font-weight: 500;
     }
@@ -68,15 +68,15 @@
         object-fit: contain;
         margin: 0 auto 2rem;
         display: block;
-        border: 5px solid #46584d;
+        border: 5px solid #192639;
         background: #f8f9fa;
     }
     .modal-title {
-        color: #2d3a32;
+        color: #0d1929;
         font-weight: 700;
     }
     .modal-subtitle {
-        color: #46584d;
+        color: #192639;
         font-size: 1.2rem;
         margin-bottom: 2rem;
     }
@@ -93,15 +93,15 @@
         }
     }
         /* Contact section */
-    #contact{background:#46584d}
+    #contact{background:#192639}
     .contact-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-bottom:3rem;text-align:left}
     .contact-info-item h4{color:#fff;font-weight:600;margin-bottom:1rem;font-size:1.5rem}
     .contact-info-item p,.contact-info-item a{color:#fff;line-height:1.8;margin:0.25rem 0}
     .contact-info-item a{text-decoration:none}
-    .contact-info-item a:hover{color:#173f2e}
+    .contact-info-item a:hover{color:#0d1929}
     .social-icons{display:flex;gap:1rem;margin-top:0.5rem}
-    .social-icons a{width:40px;height:40px;border-radius:50%;background:#173f2e;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .3s}
-    .social-icons a:hover{background:#46584d}
+    .social-icons a{width:40px;height:40px;border-radius:50%;background:#0d1929;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .3s}
+    .social-icons a:hover{background:#192639}
     .contact-map{width:100%;height:350px;border:0;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
     @media (max-width:991px){
         .contact-info-grid{grid-template-columns:1fr;gap:2rem;text-align:center}

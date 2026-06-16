@@ -313,7 +313,7 @@
                 {
                     "data": "image","orderable":false,render:function(data,type,row){
                         let img_path = row.image;
-                        let img_view = '<img src="{{ asset("storage") }}/'+img_path+'" class="rounded float-left" width="100">';
+                        let img_view = '<img src="/cp/public/storage/'+img_path+'" class="rounded float-left" width="100">';
                         return img_view;
                     }
                 },

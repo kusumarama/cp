@@ -1,4 +1,6 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <!-- Gradient overlay for text legibility -->
+            <div class="navbar-overlay"></div>
             <div class="container">
                 <a class="navbar-brand" href="#page-top"><img src="{{ asset ('template_fe/assets/img/logo hdk putih.png')}}" alt="..." style="height: 65px; width: auto;" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

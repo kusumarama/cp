@@ -26,7 +26,7 @@
 
     /* design item styling with border */
     .design-item {
-        border: 4px solid #2d5a3d;
+        border: 4px solid #192639;
         border-radius: 8px;
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -47,7 +47,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background: rgba(45, 90, 61, 0.9);
+        background: rgba(25, 38, 57, 0.9);
         opacity: 0;
         transition: opacity 0.3s ease;
         display: flex;
@@ -79,7 +79,7 @@
     .design-caption-heading {
         font-size: 1.25rem;
         font-weight: 700;
-        color: #2d5a3d;
+        color: #192639;
         margin-bottom: 0.5rem;
     }
 
@@ -102,15 +102,15 @@
     }
     
     /* Contact section */
-    #contact{background:#46584d}
+    #contact{background:#192639}
     .contact-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-bottom:3rem;text-align:left}
     .contact-info-item h4{color:#fff;font-weight:600;margin-bottom:1rem;font-size:1.5rem}
     .contact-info-item p,.contact-info-item a{color:#fff;line-height:1.8;margin:0.25rem 0}
     .contact-info-item a{text-decoration:none}
-    .contact-info-item a:hover{color:#173f2e}
+    .contact-info-item a:hover{color:#0d1929}
     .social-icons{display:flex;gap:1rem;margin-top:0.5rem}
-    .social-icons a{width:40px;height:40px;border-radius:50%;background:#173f2e;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .3s}
-    .social-icons a:hover{background:#46584d}
+    .social-icons a{width:40px;height:40px;border-radius:50%;background:#0d1929;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .3s}
+    .social-icons a:hover{background:#192639}
     .contact-map{width:100%;height:350px;border:0;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
     @media (max-width:991px){
         .contact-info-grid{grid-template-columns:1fr;gap:2rem;text-align:center}
@@ -265,7 +265,7 @@
                                     <div class="design-hover">
                                         <div class="design-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                     </div>
-                                    <img class="img-fluid" src="/storage/${design.image}" alt="${design.project_name}" height="450px"/>
+                                    <img class="img-fluid" src="${design.image}" alt="${design.project_name}" height="450px"/>
                                 </a>
                                 <div class="design-caption">
                                     <div class="design-caption-heading">${design.project_name}</div>
@@ -338,7 +338,7 @@
                                 let activeClass = index === 0 ? 'active' : '';
                                 let carouselItem = `
                                     <div class="carousel-item ${activeClass}">
-                                        <img src="{{asset('storage/')}}/${img.image_path}" class="d-block w-100 zoom-image" alt="${project_name}" style="max-height: 500px; object-fit: contain; cursor: pointer;">
+                                        <img src="${img.image_path}" class="d-block w-100 zoom-image" alt="${project_name}" style="max-height: 500px; object-fit: contain; cursor: pointer;">
                                     </div>
                                 `;
                                 carouselInner.append(carouselItem);
@@ -347,7 +347,7 @@
                             // Fallback to main image if no additional images
                             carouselInner.append(`
                                 <div class="carousel-item active">
-                                    <img src="{{asset('storage/')}}/${image}" class="d-block w-100 zoom-image" alt="${project_name}" style="max-height: 500px; object-fit: contain; cursor: pointer;">
+                                    <img src="${image}" class="d-block w-100 zoom-image" alt="${project_name}" style="max-height: 500px; object-fit: contain; cursor: pointer;">
                                 </div>
                             `);
                         }

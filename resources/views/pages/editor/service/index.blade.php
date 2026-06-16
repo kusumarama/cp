@@ -197,7 +197,7 @@
                 {
                     "data": "image","orderable":false,render:function(data,type,row){
                         let img_path = row.image;
-                        let img_view = '<img src="{{ asset("storage") }}/'+img_path+'" class="rounded float-left" width="100">';
+                        let img_view = '<img src="/cp/public/storage/'+img_path+'" class="rounded float-left" width="100">';
                         return img_view;
                     }
                 },
@@ -282,7 +282,7 @@
                         let subtitle_id = data.data.subtitle_id;
                         let image = data.data.image;
                         $("#updateForm #imagev_update").empty().append('<img id="img" class="img-fluid" src="#">');
-                        $('#img').attr('src', "{{ asset('storage') }}/"+image).height(200);
+                        $('#img').attr('src', "/cp/public/storage/"+image).height(200);
                         $("#id_update").val(id);
                         $("#title_update").val(title);
                         $("#title_id_update").val(title_id);

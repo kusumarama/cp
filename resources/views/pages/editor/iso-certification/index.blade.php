@@ -1,6 +1,6 @@
 @extends('layout.editor')
 @section('title')
-    Client
+    ISO Certification
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Client</h1>
+        <h1 class="h3 mb-0 text-gray-800">ISO Certification / Berstandar ISO</h1>
         
         <form action="" id="form_cari" method="post">
             @csrf
@@ -29,14 +29,17 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Client</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data ISO Certification</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="Tmh" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Nama Client </th>
+                            <th>Title (EN)</th>
+                            <th>Title (ID)</th>
+                            <th>Description (EN)</th>
+                            <th>Description (ID)</th>
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -54,7 +57,7 @@
         <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add new Client</h5>
+                    <h5 class="modal-title">Add new ISO Certification</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -63,13 +66,31 @@
                     <div class="form-grop row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="">Nama Client</label>
+                                <label for="">Title (English)</label>
                                 <input type="text" id="title" name="title" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Title (Bahasa Indonesia)</label>
+                                <input type="text" id="title_id" name="title_id" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Description (English)</label>
+                                <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Description (Bahasa Indonesia)</label>
+                                <textarea id="description_id" name="description_id" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Image</label>
+                        <label for="">Certificate Image</label>
                         <div id="imagev" class="my-2"></div>
                         <input type="file" id="file" name="file" class="form-control" onchange="ViewImage(this);">
                     </div>
@@ -88,7 +109,7 @@
         <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update </h5>
+                    <h5 class="modal-title">Update ISO Certification</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -97,14 +118,32 @@
                     <div class="form-grop row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="">Nama Client</label>
+                                <label for="">Title (English)</label>
                                 <input type="hidden" id="id_update" name="id" class="form-control">
                                 <input type="text" id="title_update" name="title" class="form-control">
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Title (Bahasa Indonesia)</label>
+                                <input type="text" id="title_id_update" name="title_id" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Description (English)</label>
+                                <textarea id="description_update" name="description" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="">Description (Bahasa Indonesia)</label>
+                                <textarea id="description_id_update" name="description_id" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="">Image</label>
+                        <label for="">Certificate Image</label>
                         <div id="imagev_update" class="my-2"></div>
                         <input type="file" id="file_update" name="file" class="form-control" onchange="ViewImageUp(this);">
                     </div>
@@ -125,8 +164,8 @@
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                let imgElement = '<img id="imgv" class="img-fluid" src="' + e.target.result + '" height="200">';
-                imagev.empty().append(imgElement);
+            imagev.empty().append('<img id="imgv" class="img-fluid" src="#">');
+            $('#imgv').attr('src', e.target.result).height(200);
             };
             reader.readAsDataURL(input.files[0]);
         }
@@ -136,8 +175,8 @@
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                 let imgElement = '<img id="imgv_update" class="img-fluid" src="' + e.target.result + '" height="200">';
-                imagev.empty().append(imgElement);
+            imagev.empty().append('<img id="imgv_update" class="img-fluid" src="#">');
+            $('#imgv_update').attr('src', e.target.result).height(200);
             };
             reader.readAsDataURL(input.files[0]);
         }
@@ -151,7 +190,7 @@
             "pagingType": "full_numbers",
             "paging":true,
             "ajax":{
-                "url":"{{ route('editor.client.data') }}",
+                "url":"{{ route('editor.iso-certification.data') }}",
                 "data":function(parm){
                     parm.search = function(){
                         return $('#cari').val()
@@ -161,7 +200,9 @@
             },
             "columns":[
                 {"data": "title","orderable":false},
-                
+                {"data": "title_id","orderable":false},
+                {"data": "description","orderable":false},
+                {"data": "description_id","orderable":false},
                 {
                     "data": "image","orderable":false,render:function(data,type,row){
                         let img_path = row.image;
@@ -172,11 +213,7 @@
                 {
                     "data": "id","orderable":false,render: function ( data, type, row ){
                         var idData = row.id;
-                        let isVerified = row.verified;
                         let btn ='<div class="btn-group" role="group" aria-label="Basic example">';
-                        if(isVerified == 0){
-                            btn += '<button type="button" class="btn btn-success btnVerified">Verified</button>';
-                        }
                         btn += '<button type="button" class="btn btn-warning btnUpdate">Update</button>';
                         btn += '<button type="button" class="btn btn-danger btnDelete">Delete</button>';
                         btn += '</div>';
@@ -194,7 +231,7 @@
         $("#proses_add").click(function(){
             var postData = new FormData($("#addForm")[0]);
             $.ajax({
-                url:"{{ URL::route('editor.client.store') }}",
+                url:"{{ URL::route('editor.iso-certification.store') }}",
                 data:postData,
                 type:"POST",
                 dataType:"JSON",
@@ -230,7 +267,7 @@
             let data = Tmh.row( $(this).parents('tr') ).data();
             let idData = data.id;
             $.ajax({
-                url:"{{ URL::route('editor.client.detail') }}",
+                url:"{{ URL::route('editor.iso-certification.detail') }}",
                 type: "GET",
                 data: {
                     "_token": "{{ csrf_token() }}",
@@ -245,13 +282,17 @@
                     if(data.success == 1){
                         let id = data.data.id;
                         let title = data.data.title;
-                        
+                        let title_id = data.data.title_id;
+                        let description = data.data.description;
+                        let description_id = data.data.description_id;
                         let image = data.data.image;
                         $("#updateForm #imagev_update").empty().append('<img id="img" class="img-fluid" src="#">');
                         $('#img').attr('src', "/cp/public/storage/"+image).height(200);
                         $("#id_update").val(id);
                         $("#title_update").val(title);
-                       
+                        $("#title_id_update").val(title_id);
+                        $("#description_update").val(description);
+                        $("#description_id_update").val(description_id);
                         $('#file_update').val(null);
                         
                     } else{
@@ -267,7 +308,7 @@
         $("#proses_update").click(function(){
             var postData = new FormData($("#updateForm")[0]);
             $.ajax({
-                url:"{{ URL::route('editor.client.update') }}",
+                url:"{{ URL::route('editor.iso-certification.update') }}",
                 data:postData,
                 type:"POST",
                 dataType:"JSON",
@@ -279,6 +320,10 @@
                 },
                 success:function(data){
                     if(data.success == 1){
+                        // Reset form
+                        $('#updateForm')[0].reset();
+                        // Remove image preview
+                        $('#imagev_update').empty();
                         $("#updateModal").modal("hide");
                         toastr_success(data.messages);
                         redraw();
@@ -295,17 +340,17 @@
             let data = Tmh.row( $(this).parents('tr') ).data();
             let idData = data.id;
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
+                title: 'Apakah Anda Yakin?',
+                text: "Anda tidak akan dapat mengembalikan ini!",
+                icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-                }).then((result) => {
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url:"{{ URL::route('editor.client.delete') }}",
+                        url:"{{ URL::route('editor.iso-certification.delete') }}",
                         type: "DELETE",
                         data: {
                             "_token": "{{ csrf_token() }}",
@@ -327,11 +372,13 @@
                         complete: function(){
                             $('.loading-clock').css('display','none');
                         },
-                    }); 
+                    })
                 }
-                });
+            })
         });
-        function toastr_success(msg){
+    });
+
+    function toastr_success(msg){
         const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
@@ -342,12 +389,13 @@
                 toast.onmouseenter = Swal.stopTimer;
                 toast.onmouseleave = Swal.resumeTimer;
             }
-            });
-            Toast.fire({
+        });
+        Toast.fire({
             icon: "success",
             title: msg
         });
     }
+
     function toastr_error(msg){
         const Toast = Swal.mixin({
             toast: true,
@@ -359,12 +407,11 @@
                 toast.onmouseenter = Swal.stopTimer;
                 toast.onmouseleave = Swal.resumeTimer;
             }
-            });
-            Toast.fire({
+        });
+        Toast.fire({
             icon: "error",
             title: msg
         });
-        }
-    });
+    }
 </script>
 @endsection

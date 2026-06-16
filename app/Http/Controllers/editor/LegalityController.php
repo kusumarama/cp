@@ -29,7 +29,7 @@ class LegalityController extends Controller
         $start = $request->input('start', 0);
         $limit = $request->input('length', 10);
         try {
-            $query = Legality::where('title', 'LIKE', '%'.$cari.'%');
+            $query = Legality::where('title', 'LIKE', '%'.$cari.'%')->orderBy('title', 'asc');
             $Legality = $query->offset($start)->limit($limit)->get();
             $Legality_total = $query->count();
             $data['draw'] = intval($request->input('draw'));
