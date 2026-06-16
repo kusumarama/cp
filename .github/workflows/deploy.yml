@@ -40,6 +40,8 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: public_html/
+        dangerous-clean-slate: false
+        timeout: 60000
         exclude: |
           **/.git*
           **/.git*/**
@@ -56,3 +58,6 @@ jobs:
           CHECKLIST.md
           tests/**
           phpunit.xml
+          install.bat
+          install.sh
+          temp_script.txt
